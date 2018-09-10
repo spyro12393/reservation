@@ -1,0 +1,15 @@
+# Glob syntax
+syntax: glob
+
+*~
+*.bak
+
+# Regexp syntax rules
+syntax: regexp
+
+^\.settings$
+^\.project$
+^\.buildpath
+^\.idea
+^hg-code.iml
+^nbproject
