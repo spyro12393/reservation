@@ -983,11 +983,11 @@ $mail_settings['from'] = 'admin_email@your.org';
 // email address because on some mail systems, eg IBM Domino, the iCalendar email
 // notification is silently discarded if the organizer's email address is the same 
 // as the recipient's.  On other systems you may get a "Meeting not found" message.
-$mail_settings['organizer'] = 'mrbs@your.org';
+$mail_settings['organizer'] = 'mansion.lai.411@gmail.com';
 
 // Set the recipient email. Default is 'admin_email@your.org'. You can define
 // more than one recipient like this "john@doe.com,scott@tiger.com"
-$mail_settings['recipients'] = 'admin_email@your.org';
+$mail_settings['recipients'] = 'mansion.lao.411@gmail.com';
 
 // Set email address of the Carbon Copy field. Default is ''. You can define
 // more than one recipient (see 'recipients')
@@ -1155,14 +1155,14 @@ $mail_settings['disabled'] = false;
 // based on the user's browser language settings. It will ensure that
 // the language displayed is always the value of $default_language_tokens,
 // as specified below
-$disable_automatic_language_changing = 0;
+$disable_automatic_language_changing = 1;
 
 // Set this to a different language specifier to default to different
 // language tokens. This must equate to a lang.* file in MRBS.
 // e.g. use "fr" to use the translations in "lang.fr" as the default
 // translations.  [NOTE: it is only necessary to change this if you
 // have disabled automatic language changing above]
-$default_language_tokens = "en";
+$default_language_tokens = "zh-tw";
 
 // Set this to a valid locale (for the OS you run the MRBS server on)
 // if you want to override the automatic locale determination MRBS
