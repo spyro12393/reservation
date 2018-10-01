@@ -218,3 +218,8 @@ $vocab["for_any_questions"]  = ",關於任何在這裡找不到答案的問題."
 $vocab["type.I"]             = "內部使用";
 $vocab["type.E"]             = "外部使用";
 
+// User access levels
+$vocab["level_0"]            = "一般使用者";
+$vocab["level_1"]            = "系所管理員";
+$vocab["level_2"]            = "管理員";
+$vocab["level_3"]            = "用戶管理員";
