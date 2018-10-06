@@ -138,6 +138,7 @@ function print_rooms($query_string)
 
 function print_report($query_string)
 {
+  // comment by Mansion
   echo "<a href=\"report.php?$query_string\">" . get_vocab("report") . "</a>\n";
 }
 
@@ -203,9 +204,10 @@ function print_nav($day, $month, $year, $area, $room, $search_str=null, $simple=
     print_rooms($query_string);
     echo "</li>\n";
     
-    echo "<li>\n";
-    print_report($query_string);
-    echo "</li>\n";
+    // comment by Mansion
+    //echo "<li>\n";
+    //print_report($query_string);
+    //echo "</li>\n";
     
     echo "<li>\n";
     print_search($day, $month, $year, $area, $room, $search_str);
