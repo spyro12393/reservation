@@ -75,3 +75,4 @@ $db_persist = FALSE;
    or areadefaults.inc.php.  */
 
 $auth["type"]="db";
+$auth["session"]="php";
