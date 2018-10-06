@@ -233,10 +233,10 @@ $vocab["upgrade_to_local_version"] = "Upgrading to database local version";
 $vocab["upgrade_completed"]        = "Database upgrade completed.";
 
 // User access levels
-$vocab["level_0"]            = "user";
-$vocab["level_1"]            = "dept. manager";
-$vocab["level_2"]            = "admin";
-$vocab["level_3"]            = "user admin";
+$vocab["level_0"]            = "Guest";
+$vocab["level_1"]            = "User";
+$vocab["level_2"]            = "DeptAdmin";
+$vocab["level_3"]            = "Administrator";
 
 // Authentication database
 $vocab["user_list"]          = "User list";
