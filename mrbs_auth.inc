@@ -23,7 +23,7 @@ $page_level['week.php']                  = ($auth['deny_public_access']) ? 1 : 0
 // break into the system, so users are required to be logged in before viewing them.
 $page_level['report.php']                = 2;
 $page_level['search.php']                = 2;
-$page_level['view_entry.php']            = 2;
+$page_level['view_entry.php']            = 1;
 
 // These pages are set to have a minimum access level of 1 as ordinary users
 // should be able to access them because they will have read access and in some
@@ -36,8 +36,8 @@ $page_level['edit_area_room.php']        = 1;  // Ordinary users can view room d
 $page_level['edit_entry.php']            = ($auth['only_admin_can_book']) ? 3 : 1;
 $page_level['check_slot_ajax.php']       = $page_level['edit_entry.php'];  // only used by edit_entry.php
 $page_level['edit_entry_handler.php']    = ($auth['only_admin_can_book']) ? 3 : 1;
-$page_level['edit_users.php']            = 2;  // Ordinary users can edit their own details
-$page_level['pending.php']               = 2;  // Ordinary users can view their own entries
+$page_level['edit_users.php']            = 1;  // Ordinary users can edit their own details
+$page_level['pending.php']               = 1;  // Ordinary users can view their own entries
 
 // These pages have a minimum access level of 3 as they only contain admin features
 $page_level['add.php']                   = 3;
