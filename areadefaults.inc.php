@@ -268,7 +268,7 @@ $reminders_enabled = TRUE;
 // Allows bookings to be marked as "tentative", ie not yet 100% certain,
 // and confirmed later.   Useful if you want to reserve a slot but at the same
 // time let other people know that there's a possibility it may not be needed.
-$confirmation_enabled = TRUE;
+$confirmation_enabled = FALSE;
 
 // The default confirmation status for new bookings.  (TRUE: confirmed, FALSE: tentative)
 // Only used if $confirmation_enabled is TRUE.   If $confirmation_enabled is 
