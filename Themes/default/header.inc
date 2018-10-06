@@ -141,7 +141,6 @@ function print_report($query_string)
   echo "<a href=\"report.php?$query_string\">" . get_vocab("report") . "</a>\n";
 }
 
-
 function print_search($day, $month, $year, $area, $room, $search_str=null)
 {
   if (!isset($search_str))
@@ -218,12 +217,12 @@ function print_nav($day, $month, $year, $area, $room, $search_str=null, $simple=
       print_logon_box();
       echo "</li>\n";
     }
+
   }
   
   echo "</ul>\n";
   echo "</nav>\n";
 }
-
 
 
 // Print a message which will only be displayed (thanks to CSS) if the user is
