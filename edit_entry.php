@@ -515,7 +515,7 @@ function create_field_entry_confirmation_status($disabled=FALSE)
     $buttons[1] = get_vocab("confirmed");
     
     $params = array('label'       => get_vocab("confirmation_status"),
-                    'name'        => 'confirmed',
+                    'name'        => 'tentative',
                     'value'       => ($confirmed) ? 1 : 0,
                     'options'     => $buttons,
                     'force_assoc' => TRUE,
