@@ -62,6 +62,10 @@ function print_header_site_info()
     // is not enabled in php.ini
     $logo_size = @getimagesize($mrbs_company_logo);
     echo "<img src=\"$mrbs_company_logo\" " . $logo_size[3] . " alt=\"$mrbs_company\">\n";
+    // edit by Mansion
+    echo "<div class=\"company2\">\n";
+    echo "<span>$mrbs_company</span>\n";
+    echo "</div>\n";
   }
   if (!empty($mrbs_company_url))
   {
