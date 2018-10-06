@@ -106,13 +106,13 @@ $mrbs_admin_email = "admin_email@your.org";
 $mrbs_company = "中央大學-課務組";   // This line must always be uncommented ($mrbs_company is used in various places)
 
 // Uncomment this next line to use a logo instead of text for your organisation in the header
-//$mrbs_company_logo = "your_logo.gif";    // name of your logo file.   This example assumes it is in the MRBS directory
+$mrbs_company_logo = "images/logo.gif";    // name of your logo file.   This example assumes it is in the MRBS directory
 
 // Uncomment this next line for supplementary information after your company name or logo
 //$mrbs_company_more_info = "You can put additional information here";  // e.g. "XYZ Department"
 
 // Uncomment this next line to have a link to your organisation in the header
-//$mrbs_company_url = "http://www.your_organisation.com/";
+$mrbs_company_url = "http://pdc.adm.ncu.edu.tw/course_index.asp?roadno=107";
 
 // This is to fix URL problems when using a proxy in the environment.
 // If links inside MRBS appear broken, then specify here the URL of
