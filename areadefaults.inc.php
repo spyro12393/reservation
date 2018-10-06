@@ -79,8 +79,8 @@ $morningstarts         = 8;   // must be integer in range 0-23
 $morningstarts_minutes = 0;   // must be integer in range 0-59
 
 // The beginning of the last slot of the day (DEFAULT VALUES FOR NEW AREAS)
-$eveningends           = 19;  // must be integer in range 0-23
-$eveningends_minutes   = 50;   // must be integer in range 0-59
+$eveningends           = 20;  // must be integer in range 0-23
+$eveningends_minutes   = 0;   // must be integer in range 0-59
 
 // Example 1.
 // If resolution=3600 (1 hour), morningstarts = 8 and morningstarts_minutes = 30 
