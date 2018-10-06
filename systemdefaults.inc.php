@@ -632,7 +632,7 @@ $auth["session_php"]["session_expire_time"] = (60*60*24*30); // 30 days
 // your system is not capable of doing Ajax refreshes but instead uses a <meta>
 // tag to do the refresh, then these refreshes will count as activity - this
 // be the case if you have JavaScript disabled on the client.
-$auth["session_php"]["inactivity_expire_time"] = 0; // seconds
+$auth["session_php"]["inactivity_expire_time"] = 300; // seconds
 
 
 // Cookie path override. If this value is set it will be used by the
@@ -683,7 +683,7 @@ $max_level = 3;
 // The lowest level of admin allowed to view other users
 $min_user_viewing_level = 3;
 // The lowest level of admin allowed to edit other users
-$min_user_editing_level = 3;
+$min_user_editing_level = 2;
 
 // Password policy.  Uncomment the variables and set them to the
 // required values as appropriate.
@@ -976,18 +976,18 @@ $allow_cli = false;
 // --------------
 
 // Set the email address of the From field. Default is 'admin_email@your.org'
-$mail_settings['from'] = 'admin_email@your.org';
+$mail_settings['from'] = 'no-reply@mail.ncuisq.tk';
 
 // The address to be used for the ORGANIZER in an iCalendar event.   Do not make
 // this email address the same as the admin email address or the recipients 
 // email address because on some mail systems, eg IBM Domino, the iCalendar email
 // notification is silently discarded if the organizer's email address is the same 
 // as the recipient's.  On other systems you may get a "Meeting not found" message.
-$mail_settings['organizer'] = 'mansion.lai.411@gmail.com';
+$mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
 
 // Set the recipient email. Default is 'admin_email@your.org'. You can define
 // more than one recipient like this "john@doe.com,scott@tiger.com"
-$mail_settings['recipients'] = 'mansion.lao.411@gmail.com';
+$mail_settings['recipients'] = 'mansion.lai.411@gmail.com','spyro12393@g.ncu.edu.tw';
 
 // Set email address of the Carbon Copy field. Default is ''. You can define
 // more than one recipient (see 'recipients')
@@ -1006,11 +1006,11 @@ $mail_settings['treat_cc_as_to'] = false;
 // Set to true or false as required
 // (Note:  the email addresses for the room and area administrators are set from the
 // edit_area_room.php page in MRBS)
-$mail_settings['admin_on_bookings']      = false;  // the addresses defined by $mail_settings['recipients'] below
-$mail_settings['area_admin_on_bookings'] = false;  // the area administrator
-$mail_settings['room_admin_on_bookings'] = false;  // the room administrator
-$mail_settings['booker']                 = false;  // the person making the booking
-$mail_settings['book_admin_on_approval'] = false;  // the booking administrator when booking approval is enabled
+$mail_settings['admin_on_bookings']      = true;  // the addresses defined by $mail_settings['recipients'] below
+$mail_settings['area_admin_on_bookings'] = true;  // the area administrator
+$mail_settings['room_admin_on_bookings'] = true;  // the room administrator
+$mail_settings['booker']                 = true;  // the person making the booking
+$mail_settings['book_admin_on_approval'] = true;  // the booking administrator when booking approval is enabled
                                                    // (which is the MRBS admin, but this setting allows MRBS
                                                    // to be extended to have separate booking approvers)     
 
@@ -1028,14 +1028,14 @@ $mail_settings['book_admin_on_approval'] = false;  // the booking administrator 
 // for new bookings if there was somebody to send them to)
 
 $mail_settings['on_new']    = true;   // when an entry is created
-$mail_settings['on_change'] = false;  // when an entry is changed
-$mail_settings['on_delete'] = false;  // when an entry is deleted
+$mail_settings['on_change'] = true;  // when an entry is changed
+$mail_settings['on_delete'] = true;  // when an entry is deleted
 
 // It is also possible to allow all users or just admins to choose not to send an
 // email when creating or editing a booking.  This can be useful if an inconsequential
 // change is being made, or many bookings are being made at the beginning of a term or season.
 $mail_settings['allow_no_mail']        = false;
-$mail_settings['allow_admins_no_mail'] = false;  // Ignored if 'allow_no_mail' is true
+$mail_settings['allow_admins_no_mail'] = true;  // Ignored if 'allow_no_mail' is true
 $mail_settings['no_mail_default'] = false; // Default value for the 'no mail' checkbox.  
                                            // true for checked (ie don't send mail),
                                            // false for unchecked (ie do send mail)
@@ -1045,10 +1045,10 @@ $mail_settings['no_mail_default'] = false; // Default value for the 'no mail' ch
 // -------------
 // These settings determine what should be included in the email
 // Set to true or false as required
-$mail_settings['details']   = false; // Set to true if you want full booking details;
+$mail_settings['details']   = true; // Set to true if you want full booking details;
                                      // otherwise you just get a link to the entry
-$mail_settings['html']      = false; // Set to true if you want HTML mail
-$mail_settings['icalendar'] = false; // Set to true to include iCalendar details
+$mail_settings['html']      = true; // Set to true if you want HTML mail
+$mail_settings['icalendar'] = true; // Set to true to include iCalendar details
                                      // which can be imported into a calendar.  (Note:
                                      // iCalendar details will not be sent for areas
                                      // that use periods as there isn't a mapping between
@@ -1072,7 +1072,7 @@ $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 // if you are using any other authentication scheme then the following settings allow
 // you to specify a domain name that will be appended to the username to produce a
 // valid email address (eg "@domain.com").
-$mail_settings['domain'] = '';
+$mail_settings['domain'] = '@mail.ncuisq.tk';
 // If you use $mail_settings['domain'] above and username returned by mrbs contains extra
 // strings appended like domain name ('username.domain'), you need to provide
 // this extra string here so that it will be removed from the username.
@@ -1083,7 +1083,7 @@ $mail_settings['username_suffix'] = '';
 // ----------------------
 // Set the name of the backend used to transport your mails. Either 'mail',
 // 'smtp', 'sendmail' or 'qmail'. Default is 'mail'.
-$mail_settings['admin_backend'] = 'mail';
+$mail_settings['admin_backend'] = 'smtp';
 
 /*******************
  * Sendmail settings
@@ -1108,15 +1108,15 @@ $mail_settings['qmail']['qmail-inject-path'] = '/usr/bin/qmail-inject';
  */
 
 // These settings are only used with the "smtp" backend
-$smtp_settings['host'] = 'localhost';  // SMTP server
-$smtp_settings['port'] = 25;           // SMTP port number
-$smtp_settings['auth'] = false;        // Whether to use SMTP authentication
-$smtp_settings['secure'] = '';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
+$smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
+$smtp_settings['port'] = 587;           // SMTP port number
+$smtp_settings['auth'] = true;        // Whether to use SMTP authentication
+$smtp_settings['secure'] = 'tls';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
                                        // server doesn't advertise it. Conversely if you specify '' and the server advertises TLS, TLS
                                        // will be used, unless the 'disable_opportunistic_tls' configuration parameter shown below is
                                        // set to true.
-$smtp_settings['username'] = '';       // Username (if using authentication)
-$smtp_settings['password'] = '';       // Password (if using authentication)
+$smtp_settings['username'] = 'chiwei_yeh';       // Username (if using authentication)
+$smtp_settings['password'] = '!Jasonjr31';       // Password (if using authentication)
 $smtp_settings['disable_opportunistic_tls'] = false; // Set this to true to disable
                                                      // opportunistic TLS
                                                      // https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#opportunistic-tls
