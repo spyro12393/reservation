@@ -256,7 +256,7 @@ $private_override = "none";  // DEFAULT VALUE FOR NEW AREAS
 // approved by an admin.   The settings here are the default settings for new
 // areas.  The settings for individual areas can be changed from within MRBS.
 
-$approval_enabled = FALSE;  // Set to TRUE to enable booking approval
+$approval_enabled = TRUE;  // Set to TRUE to enable booking approval
 
 // Set to FALSE if you don't want users to be able to send reminders
 // to admins when bookings are still awaiting approval.
