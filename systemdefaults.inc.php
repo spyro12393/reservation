@@ -987,7 +987,7 @@ $mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
 
 // Set the recipient email. Default is 'admin_email@your.org'. You can define
 // more than one recipient like this "john@doe.com,scott@tiger.com"
-$mail_settings['recipients'] = 'mansion.lai.411@gmail.com','spyro12393@g.ncu.edu.tw';
+$mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw';
 
 // Set email address of the Carbon Copy field. Default is ''. You can define
 // more than one recipient (see 'recipients')
