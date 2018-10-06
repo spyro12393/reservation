@@ -205,9 +205,9 @@ function print_nav($day, $month, $year, $area, $room, $search_str=null, $simple=
     echo "</li>\n";
     
     // comment by Mansion
-    //echo "<li>\n";
-    //print_report($query_string);
-    //echo "</li>\n";
+    echo "<li>\n";
+    print_report($query_string);
+    echo "</li>\n";
     
     echo "<li>\n";
     print_search($day, $month, $year, $area, $room, $search_str);
