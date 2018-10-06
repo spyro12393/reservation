@@ -676,14 +676,14 @@ $auth["prog"]   = "";
 $auth["params"] = "";
 
 // 'auth_db' configuration settings
-// The highest level of access (0=none; 1=user; 2+=admin).    Used in edit_users.php
+// The highest level of access (0=none; 1=user; 2=dept admin; 3+=admin).    Used in edit_users.php
 // In the future we might want a higher level of granularity, eg to distinguish between
 // different levels of admin
-$max_level = 2;
+$max_level = 3;
 // The lowest level of admin allowed to view other users
-$min_user_viewing_level = 2;
+$min_user_viewing_level = 3;
 // The lowest level of admin allowed to edit other users
-$min_user_editing_level = 2;
+$min_user_editing_level = 3;
 
 // Password policy.  Uncomment the variables and set them to the
 // required values as appropriate.
