@@ -1109,22 +1109,22 @@ $mail_settings['qmail']['qmail-inject-path'] = '/usr/bin/qmail-inject';
 
 // These settings are only used with the "smtp" backend
 $smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
-$smtp_settings['port'] = 587;           // SMTP port number
+$smtp_settings['port'] = 25;           // SMTP port number
 $smtp_settings['auth'] = true;        // Whether to use SMTP authentication
-$smtp_settings['secure'] = 'tls';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
+$smtp_settings['secure'] = '';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
                                        // server doesn't advertise it. Conversely if you specify '' and the server advertises TLS, TLS
                                        // will be used, unless the 'disable_opportunistic_tls' configuration parameter shown below is
                                        // set to true.
-$smtp_settings['username'] = 'chiwei_yeh';       // Username (if using authentication)
-$smtp_settings['password'] = '!Jasonjr31';       // Password (if using authentication)
+$smtp_settings['username'] = 'no-reply';       // Username (if using authentication)
+$smtp_settings['password'] = 'ggininder';       // Password (if using authentication)
 $smtp_settings['disable_opportunistic_tls'] = false; // Set this to true to disable
                                                      // opportunistic TLS
                                                      // https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#opportunistic-tls
 // If you're having problems with sending email to a TLS-enabled SMTP server *which you trust* you can change the following
 // settings, which reduce TLS security.
 // See https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#php-56-certificate-verification-failure
-$smtp_settings['ssl_verify_peer'] = true;
-$smtp_settings['ssl_verify_peer_name'] = true;
+$smtp_settings['ssl_verify_peer'] = false;
+$smtp_settings['ssl_verify_peer_name'] = false;
 $smtp_settings['ssl_allow_self_signed'] = false;
 
 // EMAIL - MISCELLANEOUS
@@ -1138,7 +1138,7 @@ $mail_settings['ics_filename'] = "booking";
 // If you are not getting emails it can be helpful by telling you (a) whether the mail functions
 // are being called in the first place (b) whether there are addresses to send email to and (c)
 // the result of the mail sending operation.
-$mail_settings['debug'] = false;
+$mail_settings['debug'] = true;
 // Where to send the debug output.  Can be 'browser' or 'log' (for the error_log)
 $mail_settings['debug_output'] = 'log';
 
