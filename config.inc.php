@@ -76,3 +76,4 @@ $db_persist = FALSE;
 
 $auth["type"]="db";
 $auth["session"]="php";
+$auth['only_admin_can_see_other_users'] = true;
