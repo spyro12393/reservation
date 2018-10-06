@@ -21,7 +21,7 @@ $vocab["outstanding"]        = "個預約待審核中";
 
 // Used in day.php
 $vocab["bookingsfor"]        = "預約";
-$vocab["bookingsforpost"]    = "";
+$vocab["bookingsforpost"]    = "bookingsforpost";
 $vocab["areas"]              = "區域";
 $vocab["daybefore"]          = "查看前一天";
 $vocab["dayafter"]           = "查看後一天";
@@ -118,7 +118,7 @@ $vocab["logoff"]             = "登出";
 $vocab["username_or_email"]  = "使用者名稱或電子郵件地址";
 
 // Authentication database
-$vocab["user_list"]          = "使用者清單";
+$vocab["user_list"]          = "使用者設定";
 $vocab["edit_user"]          = "編輯使用者";
 $vocab["delete_user"]        = "刪除使用者";
 //$vocab["users.name"]         = Use the same as above, for consistency.
@@ -214,8 +214,8 @@ $vocab["invalid_email"]      = "不合法的email!";
 // Used in del.php
 $vocab["deletefollowing"]    = "這個動作會刪除相關的預約紀錄";
 $vocab["sure"]               = "確定嗎?";
-$vocab["YES"]                = "YES";
-$vocab["NO"]                 = "NO";
+$vocab["YES"]                = "確定";
+$vocab["NO"]                 = "取消";
 $vocab["delarea"]            = "你必須先刪除所屬的會議室<p>";
 
 // Used in help.php
@@ -249,4 +249,7 @@ $vocab["back"]               = "返回";
 
 // Used in pending.php
 $vocab["pending"]            = "審核預約";
-$vocab["none_outstanding"]   = "沒有待審核的預約";
+$vocab["none_outstanding"]   = "無待審核預約";
+
+// Used in register.php
+$vocab["register"]            = "註冊";

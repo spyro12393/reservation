@@ -75,8 +75,10 @@ function print_logon_box()
   }
   else
   {
-    print_unknown_user();
+    //print_unknown_user();
     print_logon_button($target_url);
+    print_register_button("https://www.google.com");
+
   } 
   
   print_userlist_link();

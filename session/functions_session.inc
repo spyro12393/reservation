@@ -129,6 +129,28 @@ function print_logon_button($target_url)
   $form->render();
 }
 
+// edit by Mansion ------------------------
+function print_register_button($target_url)
+{
+  $form = new Form();
+  $form->setAttributes(array('method' => 'post',
+                             'action' => 'admin.php'));
+  
+  // Add the hidden fields
+  $hidden_inputs = array('target_url' => $target_url,
+                         'action'     => 'SetName',
+                         'username'   => '',
+                         'password'   => '');
+  $form->addHiddenInputs($hidden_inputs);
+  
+  // The submit button
+  $element = new ElementInputSubmit();
+  $element->setAttribute('value', get_vocab('register'));
+  $form->addElement($element);
+  
+  $form->render();
+}
+// ----------------------------------------
 
 function print_logoff_button($target_url)
 {
