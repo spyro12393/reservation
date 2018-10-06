@@ -54,7 +54,6 @@ function getUserName()
   return NULL;
 }
 
-
 // Print the logon entry on the top banner.
 function print_logon_box()
 {

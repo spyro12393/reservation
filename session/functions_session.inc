@@ -8,7 +8,6 @@ use MRBS\Form\FieldInputPassword;
 use MRBS\Form\FieldInputSubmit;
 use MRBS\Form\FieldInputText;
 
-
 function print_login_failed()
 {
   echo "<p>" . get_vocab('unknown_user') . "</p>\n";
@@ -156,9 +155,5 @@ function print_logoff_button($target_url)
 function print_userlist_link()
 {
   global $auth;
-  
-  if ($auth['type'] == 'db')
-  {
-    echo "<a id=\"user_list_link\" href=\"edit_users.php\">" . get_vocab('user_list') . "</a>\n";
-  }
+  echo "<a id=\"user_list_link\" href=\"edit_users.php\">" . get_vocab('user_list') . "</a>\n";
 }

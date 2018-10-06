@@ -532,3 +532,5 @@ $vocab["browser_not_supported"] = "Unfortunately your browser isn't supported by
                                   "recent version, or else use another browser.";
 $vocab["back"]               = "Back";
 
+// Used in register
+$vocab["register"]            = "register";
