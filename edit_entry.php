@@ -520,9 +520,12 @@ function create_field_entry_confirmation_status($disabled=FALSE)
                     'options'     => $buttons,
                     'force_assoc' => TRUE,
                     'disabled'    => $disabled);
-                    
-    generate_radio_group($params);
-
+    //Edit by kiwi
+    if ($is_admin)
+    {
+      generate_radio_group($params);
+    }                
+    
     echo "</div>\n";
   }
 }
