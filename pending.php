@@ -60,38 +60,38 @@ function display_buttons($row, $is_series)
 
     $form->render();
     
-    // more info
-    $info_time = ($is_series) ? $row['repeat_info_time'] : $row['entry_info_time'];
-    $info_user = ($is_series) ? $row['repeat_info_user'] : $row['entry_info_user'];
-    if (empty($info_time))
-    {
-      $info_title = get_vocab("no_request_yet");
-    }
-    else
-    {
-      $info_title = get_vocab("last_request") . ' ' . time_date_string($info_time);
-      if (!empty($info_user))
-      {
-        $info_title .= " " . get_vocab("by") . " $info_user";
-      }
-    }
+    // // more info // comment by Mansion
+    // $info_time = ($is_series) ? $row['repeat_info_time'] : $row['entry_info_time'];
+    // $info_user = ($is_series) ? $row['repeat_info_user'] : $row['entry_info_user'];
+    // if (empty($info_time))
+    // {
+    //   $info_title = get_vocab("no_request_yet");
+    // }
+    // else
+    // {
+    //   $info_title = get_vocab("last_request") . ' ' . time_date_string($info_time);
+    //   if (!empty($info_user))
+    //   {
+    //     $info_title .= " " . get_vocab("by") . " $info_user";
+    //   }
+    // }
     
-    $form = new Form();
+    // $form = new Form();
 
-    $attributes = array('action' => "view_entry.php?$query_string",
-                        'method' => 'post');                   
-    $form->setAttributes($attributes);
+    // $attributes = array('action' => "view_entry.php?$query_string",
+    //                     'method' => 'post');                   
+    // $form->setAttributes($attributes);
     
-    $hidden_inputs = array('action' => 'more_info',
-                           'returl' => $returl);
-    $form->addHiddenInputs($hidden_inputs);
+    // $hidden_inputs = array('action' => 'more_info',
+    //                        'returl' => $returl);
+    // $form->addHiddenInputs($hidden_inputs);
     
-    $element = new ElementInputSubmit();
-    $element->setAttributes(array('value' => get_vocab('more_info'),
-                                  'title' => $info_title));
-    $form->addElement($element);
+    // $element = new ElementInputSubmit();
+    // $element->setAttributes(array('value' => get_vocab('more_info'),
+    //                               'title' => $info_title));
+    // $form->addElement($element);
 
-    $form->render();
+    // $form->render();
   }
   else
   {
@@ -186,7 +186,7 @@ function display_series_title_row($row)
   echo "</td>\n";
   
   echo "<td>\n";
-  display_buttons($row, TRUE);
+  display_buttons($row, TRUE); 
   echo "</td>\n";
   echo "</tr>\n";
 }
