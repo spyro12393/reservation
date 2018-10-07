@@ -270,6 +270,12 @@ if (!$is_admin)
   $sql .= " AND E.create_by=?";
   $sql_params[] = $user;
 }
+// dept managers can only see their own buildings    // add by Mansion   
+if (authGetUserLevel($user) == 2)
+{
+  $sql .= " AND A.id in (SELECT aid FROM mrbs_deptmanager AS D WHERE D.uname = '$user')";
+} //TODO: change mrbs_deptmanager to $tbl_deptmanager
+
 // We want entries for a series to appear together so that we can display
 // them as a separate table below the main entry for the series. 
 $sql .= " ORDER BY repeat_id, start_time";
