@@ -1008,9 +1008,9 @@ $mail_settings['treat_cc_as_to'] = false;
 // edit_area_room.php page in MRBS)
 $mail_settings['admin_on_bookings']      = true;  // the addresses defined by $mail_settings['recipients'] below
 $mail_settings['area_admin_on_bookings'] = true;  // the area administrator
-$mail_settings['room_admin_on_bookings'] = true;  // the room administrator
+$mail_settings['room_admin_on_bookings'] = false;  // the room administrator
 $mail_settings['booker']                 = true;  // the person making the booking
-$mail_settings['book_admin_on_approval'] = true;  // the booking administrator when booking approval is enabled
+$mail_settings['book_admin_on_approval'] = false;  // the booking administrator when booking approval is enabled
                                                    // (which is the MRBS admin, but this setting allows MRBS
                                                    // to be extended to have separate booking approvers)     
 
@@ -1029,7 +1029,7 @@ $mail_settings['book_admin_on_approval'] = true;  // the booking administrator w
 
 $mail_settings['on_new']    = true;   // when an entry is created
 $mail_settings['on_change'] = true;  // when an entry is changed
-$mail_settings['on_delete'] = true;  // when an entry is deleted
+$mail_settings['on_delete'] = false;  // when an entry is deleted
 
 // It is also possible to allow all users or just admins to choose not to send an
 // email when creating or editing a booking.  This can be useful if an inconsequential
