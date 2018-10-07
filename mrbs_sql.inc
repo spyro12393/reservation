@@ -526,6 +526,10 @@ function get_entries_n_outstanding($user)
     $sql .= " AND create_by=?";
     $sql_params[] = $user;
   }
+  else // add by Mansion
+  {
+    $sql .= " AND A.id in (SELECT aid FROM mrbs_deptmanager AS D WHERE D.uname = '$user')";
+  } //TODO: change mrbs_deptmanager to $tbl_deptmanager
   
   return db()->query1($sql, $sql_params);
 }
