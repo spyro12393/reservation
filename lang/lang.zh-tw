@@ -335,6 +335,8 @@ $vocab["back"]               = "返回";
 // Used in pending.php
 $vocab["pending"]            = "租借申請";
 $vocab["none_outstanding"]   = "無待審核的租借申請";
+$vocab["tanent"]             = " 租借人";
+$vocab["account"]             = " 使用者名稱";
 
 // Used in register.php
 $vocab["register"]            = "註冊";

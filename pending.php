@@ -133,8 +133,8 @@ function display_table_head()
   echo "<tr>\n";
   // We give some columns a type data value so that the JavaScript knows how to sort them
   echo "<th class=\"control\">&nbsp;</th>\n";
-  echo "<th class=\"header_name\">" . get_vocab("entry") . "</th>\n";
-  echo "<th class=\"header_create\">" . get_vocab("createdby") . "</th>\n";
+  echo "<th class=\"header_name\">" . get_vocab("tanent") . "</th>\n";
+  echo "<th class=\"header_create\">" . get_vocab("account") . "</th>\n";
   echo "<th class=\"header_area\">" . get_vocab("area") . "</th>\n";
   echo "<th class=\"header_room\">" . get_vocab("room") . "</th>\n";
   echo "<th class=\"header_start_time\"><span class=\"normal\" data-type=\"title-numeric\">" . get_vocab("start_date") . "</span></th>\n";
@@ -173,6 +173,7 @@ function display_series_title_row($row)
   echo "<td class=\"control\">&nbsp;</td>\n";
   // reservation name, with a link to the view_entry page
   echo "<td><a href=\"view_entry.php?id=".$row['repeat_id']."&amp;series=1\">" . htmlspecialchars($row['name']) ."</a></td>\n";
+  
   
   // create_by, area and room names
   echo "<td>" . htmlspecialchars($row['create_by']) . "</td>\n";
