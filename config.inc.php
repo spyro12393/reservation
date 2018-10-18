@@ -44,7 +44,8 @@ $dbsys = "mysql";
 // to use Unix Domain Sockets instead of TCP/IP. For mysql "localhost"
 // tells the system to use Unix Domain Sockets, and $db_port will be ignored;
 // if you want to force TCP connection you can use "127.0.0.1".
-$db_host = "pc.mansionlai.tk";
+//$db_host = "pc.mansionlai.tk";
+$db_host = "localhost";
 // If you need to use a non standard port for the database connection you
 // can uncomment the following line and specify the port number
 // $db_port = 1234;
@@ -55,9 +56,11 @@ $db_database = "mrbs";
 // multiple schemas.
 //$db_schema = "public";
 // Database login user name:
-$db_login = "mrbs";
+//$db_login = "mrbs";
+$db_login = "root";
 // Database login password:
-$db_password = 'ggininder';
+//$db_password = 'ggininder';
+$db_password = '';
 // Prefix for table names.  This will allow multiple installations where only
 // one database is available
 $db_tbl_prefix = "mrbs_";
@@ -78,3 +81,6 @@ $auth["type"]="db";
 $auth["session"]="php";
 $auth['only_admin_can_see_other_users'] = true;
 $auth['show_bulk_delete'] = true;
+
+//for web--Jason
+$web_host = "http://localhost/reservation1013/reservation_newest/admin.php";
