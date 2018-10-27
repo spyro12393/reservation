@@ -64,7 +64,7 @@
             mysqli_query($db, $sql);
             //
             $sql="INSERT INTO mrbs_users_valid (email, timesstamp)
-                       VALUES('$email', '$timestamp')" or die(mysqli_error());
+                       VALUES('$email', '$timestamp')";
             mysqli_query($db, $sql);
             $info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
             header("Refresh: 5;URL='$web_host'");
@@ -84,16 +84,15 @@
           }
         }
         else{
-          //$sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, studentID)
-                  // VALUES('1','$username', '$email', '$phone', '$password_1', '0', '$studentID')";
-          //mysqli_query($db, $sql);
-          //
-          //$sql="INSERT INTO mrbs_users_valid (email, timesstamp)
-                       // VALUES('$email', '$timestamp')" or die(mysqli_error());
-          //mysqli_query($db, $sql);
-          header("Refresh: 5;URL='$web_host'");
-          $info ='111已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
+          $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, studentID)
+                   VALUES('1','$username', '$email', '$phone', '$password_1', '0', '$studentID')";
+          mysqli_query($db, $sql);
           
+          $sql="INSERT INTO mrbs_users_valid (email, timesstamp)
+                        VALUES('$email', '$timestamp')";
+          mysqli_query($db, $sql);
+          $info ='已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
+          header("Refresh: 5;URL='$web_host'");
           /*if(!$mail->Send()){
                 $info = "Error: " . $mail->ErrorInfo;
             }
