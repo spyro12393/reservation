@@ -31,8 +31,8 @@ print_header();
         <input type="text" name="username" maxlength="10" value="<?php echo $username; ?>">
       </div>
       <div class="input-group">
-        <label>信箱</label>
-        <input type="text" name="email" ID="email" placeholder="請輸入學校信箱" maxlength="50" value="<?php echo $email; ?>">
+        <label>學校信箱</label>
+        <input type="text" name="email" ID="email" placeholder="請輸入信箱" maxlength="50" value="<?php echo $email; ?>">
       </div>
             <script>
                 new Awesomplete('input[name="email"]', {

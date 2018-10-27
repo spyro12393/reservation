@@ -3,7 +3,7 @@
     require_once "phpmailer/class.phpmailerinc.php";
     $errors=array();
     //
-    $db = mysqli_connect($db_host,$db_login,$db_password,$db_database);
+    $db = mysqli_connect($db_host,$db_login,$db_password,$db_database,$db_port);
     if(!$db){
       die("連接失敗: ". mysqli_connect_error());
     }
@@ -12,7 +12,8 @@
  	    $email=mysqli_real_escape_string($db,$_POST['email']);
  	    $phone=mysqli_real_escape_string($db,$_POST['phone']);
  	    $password_1=mysqli_real_escape_string($db,$_POST['password_1']);
- 	    $password_2=mysqli_real_escape_string($db,$_POST['password_2']);
+      $password_2=mysqli_real_escape_string($db,$_POST['password_2']);
+      $studentID= substr(mysqli_real_escape_string($db,$_POST['email']),9);
       //if error, push to errors array
       if(empty($username)){
         array_push($errors, "請輸入姓名");
@@ -49,7 +50,7 @@
       //if no error, insert into db
  	    if(count($errors)==0){
         $password_1=md5($password_1);
-        $timestamp = date("Y-m-d H:i:s");
+        // $timestamp = date("Y-m-d H:i:s");
       //若已有資料則判斷status，否則新增一筆
         $sql="SELECT accountstatus from mrbs_users where email='$email'";
         $result=mysqli_query($db,$sql);
@@ -58,8 +59,9 @@
           if($row['accountstatus']==0){
             $sql="DELETE from mrbs_users where email='$email'";
             mysqli_query($db, $sql);
-            $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, timesstamp)
-                     VALUES('1','$username', '$email', '$phone', '$password_1', '0', '$timestamp')" or die(mysqli_error());
+            $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, studentID)
+                     VALUES('1','$username', '$email', '$phone', '$password_1', '0','$studentID' )";
+            mysqli_query($db, $sql);
             //
             $sql="INSERT INTO mrbs_users_valid (email, timesstamp)
                        VALUES('$email', '$timestamp')" or die(mysqli_error());
@@ -82,15 +84,16 @@
           }
         }
         else{
-          $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, timesstamp)
-                   VALUES('1','$username', '$email', '$phone', '$password_1', '0', '$timestamp')" or die(mysqli_error());
-          mysqli_query($db, $sql);
+          //$sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, studentID)
+                  // VALUES('1','$username', '$email', '$phone', '$password_1', '0', '$studentID')";
+          //mysqli_query($db, $sql);
           //
-          $sql="INSERT INTO mrbs_users_valid (email, timesstamp)
-                        VALUES('$email', '$timestamp')" or die(mysqli_error());
-          mysqli_query($db, $sql);
-          $info ='已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
+          //$sql="INSERT INTO mrbs_users_valid (email, timesstamp)
+                       // VALUES('$email', '$timestamp')" or die(mysqli_error());
+          //mysqli_query($db, $sql);
           header("Refresh: 5;URL='$web_host'");
+          $info ='111已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
+          
           /*if(!$mail->Send()){
                 $info = "Error: " . $mail->ErrorInfo;
             }

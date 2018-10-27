@@ -80,4 +80,4 @@ $auth['only_admin_can_see_other_users'] = true;
 $auth['show_bulk_delete'] = true;
 
 //for web--Jason
-$web_host = "http://localhost/reservation1013/reservation_newest/admin.php";
+$web_host = "http://140.115.188.87/reservation/admin.php";

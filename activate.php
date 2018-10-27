@@ -4,7 +4,7 @@
 
 	if(isset($_GET['para'])){
 		$email=base64_decode($_GET['para']);
- 		$db=mysqli_connect($db_host,$db_login,$db_password,$db_database);
+ 		$db=mysqli_connect($db_host,$db_login,$db_password,$db_database,$db_port);
  		if(!$db){
  			die("連接失敗" .mysqli_connect_error());
  		}
