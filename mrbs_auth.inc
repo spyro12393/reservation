@@ -21,8 +21,8 @@ $page_level['week.php']                  = ($auth['deny_public_access']) ? 1 : 0
 
 // These pages reveal usernames, which could be of assistance to someone trying to
 // break into the system, so users are required to be logged in before viewing them.
-$page_level['report.php']                = 1;
-$page_level['search.php']                = 1;
+$page_level['report.php']                = 2;
+$page_level['search.php']                = 2;
 $page_level['view_entry.php']            = 1;
 
 // These pages are set to have a minimum access level of 1 as ordinary users
@@ -31,20 +31,20 @@ $page_level['view_entry.php']            = 1;
 // made within the page to prevent ordinary users gaining access to admin features.
 $page_level['admin.php']                 = 1;  // Ordinary users can view room details 
 $page_level['approve_entry_handler.php'] = 1;  // Ordinary users are allowed to remind admins
-$page_level['del_entry.php']             = ($auth['only_admin_can_book']) ? 2 : 1;
+$page_level['del_entry.php']             = ($auth['only_admin_can_book']) ? 3 : 1;
 $page_level['edit_area_room.php']        = 1;  // Ordinary users can view room details
-$page_level['edit_entry.php']            = ($auth['only_admin_can_book']) ? 2 : 1;
+$page_level['edit_entry.php']            = ($auth['only_admin_can_book']) ? 3 : 1;
 $page_level['check_slot_ajax.php']       = $page_level['edit_entry.php'];  // only used by edit_entry.php
-$page_level['edit_entry_handler.php']    = ($auth['only_admin_can_book']) ? 2 : 1;
+$page_level['edit_entry_handler.php']    = ($auth['only_admin_can_book']) ? 3 : 1;
 $page_level['edit_users.php']            = 1;  // Ordinary users can edit their own details
 $page_level['pending.php']               = 1;  // Ordinary users can view their own entries
 
-// These pages have a minimum access level of 2 as they only contain admin features
-$page_level['add.php']                   = 2;
-$page_level['del.php']                   = 2;
-$page_level['del_entry_ajax.php']        = 2;
-$page_level['edit_area.php']             = 2;
-$page_level['import.php']                = 2;
+// These pages have a minimum access level of 3 as they only contain admin features
+$page_level['add.php']                   = 3;
+$page_level['del.php']                   = 3;
+$page_level['del_entry_ajax.php']        = 3;
+$page_level['edit_area.php']             = 3;
+$page_level['import.php']                = 3;
 
 
 /* getAuthorised($level)

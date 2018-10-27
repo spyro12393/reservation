@@ -62,6 +62,10 @@ function print_header_site_info()
     // is not enabled in php.ini
     $logo_size = @getimagesize($mrbs_company_logo);
     echo "<img src=\"$mrbs_company_logo\" " . $logo_size[3] . " alt=\"$mrbs_company\">\n";
+    // edit by Mansion
+    echo "<div class=\"company2\">\n";
+    echo "<span>$mrbs_company</span>\n";
+    echo "</div>\n";
   }
   if (!empty($mrbs_company_url))
   {
@@ -141,7 +145,6 @@ function print_report($query_string)
   echo "<a href=\"report.php?$query_string\">" . get_vocab("report") . "</a>\n";
 }
 
-
 function print_search($day, $month, $year, $area, $room, $search_str=null)
 {
   if (!isset($search_str))
@@ -206,10 +209,10 @@ function print_nav($day, $month, $year, $area, $room, $search_str=null, $simple=
     echo "<li>\n";
     print_report($query_string);
     echo "</li>\n";
-    
-    echo "<li>\n";
-    print_search($day, $month, $year, $area, $room, $search_str);
-    echo "</li>\n";
+    // comment by Mansion 
+    //echo "<li>\n";
+    //print_search($day, $month, $year, $area, $room, $search_str);
+    //echo "</li>\n";
     
     // For session protocols that define their own logon box...
     if (function_exists(__NAMESPACE__ . "\\print_logon_box"))
@@ -218,12 +221,12 @@ function print_nav($day, $month, $year, $area, $room, $search_str=null, $simple=
       print_logon_box();
       echo "</li>\n";
     }
+
   }
   
   echo "</ul>\n";
   echo "</nav>\n";
 }
-
 
 
 // Print a message which will only be displayed (thanks to CSS) if the user is

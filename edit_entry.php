@@ -520,9 +520,13 @@ function create_field_entry_confirmation_status($disabled=FALSE)
                     'options'     => $buttons,
                     'force_assoc' => TRUE,
                     'disabled'    => $disabled);
-                    
-    generate_radio_group($params);
 
+    // $user = getUserName();
+    // if (authGetUserLevel($user) > 1)
+    // {
+    //   generate_radio_group($params); 
+    // }
+    generate_radio_group($params); 
     echo "</div>\n";
   }
 }

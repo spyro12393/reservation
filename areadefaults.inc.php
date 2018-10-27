@@ -75,12 +75,12 @@ $default_duration_all_day = FALSE;  // DEFAULT VALUE FOR NEW AREAS
 // being 18:30 -> 19:00
 
 // The beginning of the first slot of the day (DEFAULT VALUES FOR NEW AREAS)
-$morningstarts         = 7;   // must be integer in range 0-23
+$morningstarts         = 8;   // must be integer in range 0-23
 $morningstarts_minutes = 0;   // must be integer in range 0-59
 
 // The beginning of the last slot of the day (DEFAULT VALUES FOR NEW AREAS)
-$eveningends           = 18;  // must be integer in range 0-23
-$eveningends_minutes   = 30;   // must be integer in range 0-59
+$eveningends           = 20;  // must be integer in range 0-23
+$eveningends_minutes   = 0;   // must be integer in range 0-59
 
 // Example 1.
 // If resolution=3600 (1 hour), morningstarts = 8 and morningstarts_minutes = 30 
@@ -256,7 +256,7 @@ $private_override = "none";  // DEFAULT VALUE FOR NEW AREAS
 // approved by an admin.   The settings here are the default settings for new
 // areas.  The settings for individual areas can be changed from within MRBS.
 
-$approval_enabled = FALSE;  // Set to TRUE to enable booking approval
+$approval_enabled = TRUE;  // Set to TRUE to enable booking approval
 
 // Set to FALSE if you don't want users to be able to send reminders
 // to admins when bookings are still awaiting approval.
@@ -268,7 +268,7 @@ $reminders_enabled = TRUE;
 // Allows bookings to be marked as "tentative", ie not yet 100% certain,
 // and confirmed later.   Useful if you want to reserve a slot but at the same
 // time let other people know that there's a possibility it may not be needed.
-$confirmation_enabled = TRUE;
+$confirmation_enabled = FALSE;
 
 // The default confirmation status for new bookings.  (TRUE: confirmed, FALSE: tentative)
 // Only used if $confirmation_enabled is TRUE.   If $confirmation_enabled is 

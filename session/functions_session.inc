@@ -8,7 +8,6 @@ use MRBS\Form\FieldInputPassword;
 use MRBS\Form\FieldInputSubmit;
 use MRBS\Form\FieldInputText;
 
-
 function print_login_failed()
 {
   echo "<p>" . get_vocab('unknown_user') . "</p>\n";
@@ -130,6 +129,28 @@ function print_logon_button($target_url)
   $form->render();
 }
 
+// edit by Mansion ------------------------
+function print_register_button($target_url)
+{
+  $form = new Form();
+  $form->setAttributes(array('method' => 'post',
+                             'action' => 'admin.php'));
+  
+  // Add the hidden fields
+  $hidden_inputs = array('target_url' => $target_url,
+                         'action'     => 'SetName',
+                         'username'   => '',
+                         'password'   => '');
+  $form->addHiddenInputs($hidden_inputs);
+  
+  // The submit button
+  $element = new ElementInputSubmit();
+  $element->setAttribute('value', get_vocab('register'));
+  $form->addElement($element);
+  
+  $form->render();
+}
+// ----------------------------------------
 
 function print_logoff_button($target_url)
 {
@@ -156,9 +177,5 @@ function print_logoff_button($target_url)
 function print_userlist_link()
 {
   global $auth;
-  
-  if ($auth['type'] == 'db')
-  {
-    echo "<a id=\"user_list_link\" href=\"edit_users.php\">" . get_vocab('user_list') . "</a>\n";
-  }
+  echo "<a id=\"user_list_link\" href=\"edit_users.php\">" . get_vocab('user_list') . "</a>\n";
 }

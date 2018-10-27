@@ -1,0 +1,19 @@
+**Adding**
+adding.txt    --changes records
+session.php.inc  --register url route
+style.css    --css for new php
+register.php --register
+server.php  --db
+error.php  --errors records 
+info.php  --any infos except errors records
+awesomplete.css --for text autocomplete
+awesomplete.jf  --for text autocomplete
+activate.php   --activate acoount
+infoofphp.php --phpinfo
+config.inc.php --db and web server info
+phpmailer(folder) --mailer setup
+
+//unsloved
+redirect to admin.php after sucessfully register
+timer server side
+para in class.phpmailerinc.php

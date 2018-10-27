@@ -233,13 +233,13 @@ $vocab["upgrade_to_local_version"] = "Upgrading to database local version";
 $vocab["upgrade_completed"]        = "Database upgrade completed.";
 
 // User access levels
-$vocab["level_0"]            = "none";
-$vocab["level_1"]            = "user";
-$vocab["level_2"]            = "admin";
-$vocab["level_3"]            = "user admin";
+$vocab["level_0"]            = "Guest";
+$vocab["level_1"]            = "User";
+$vocab["level_2"]            = "DeptAdmin";
+$vocab["level_3"]            = "Administrator";
 
 // Authentication database
-$vocab["user_list"]          = "User list";
+$vocab["user_list"]          = "User settings";
 $vocab["edit_user"]          = "Edit user";
 $vocab["delete_user"]        = "Delete this user";
 //$vocab["users.name"]         = Use the same as above, for consistency.
@@ -532,3 +532,5 @@ $vocab["browser_not_supported"] = "Unfortunately your browser isn't supported by
                                   "recent version, or else use another browser.";
 $vocab["back"]               = "Back";
 
+// Used in register
+$vocab["register"]            = "Register";

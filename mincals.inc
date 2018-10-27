@@ -343,10 +343,10 @@ $nextmonth = mktime(12, 0, 0, $month+1, 1, $year);
 
 echo "<nav id=\"cals\">\n";
 
-#echo "<div id=\"cal_last\">\n";
-#$cal = new Calendar(date("d",$lastmonth), date("m",$lastmonth), date("Y",$lastmonth), 0, $area, $room, $dmy);
-#echo $cal->getHTML();
-#echo "</div>\n";
+echo "<div id=\"cal_last\">\n";
+$cal = new Calendar(date("d",$lastmonth), date("m",$lastmonth), date("Y",$lastmonth), 0, $area, $room, $dmy);
+echo $cal->getHTML();
+echo "</div>\n";
 
 echo "<div id=\"cal_this\">\n";
 $cal = new Calendar(date("d",$thismonth), date("m",$thismonth), date("Y",$thismonth), 1, $area, $room, $dmy);

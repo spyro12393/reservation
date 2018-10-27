@@ -54,7 +54,6 @@ function getUserName()
   return NULL;
 }
 
-
 // Print the logon entry on the top banner.
 function print_logon_box()
 {
@@ -76,8 +75,10 @@ function print_logon_box()
   }
   else
   {
-    print_unknown_user();
+    //print_unknown_user();
     print_logon_button($target_url);
+    print_register_button("register.php");
+
   } 
   
   print_userlist_link();
