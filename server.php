@@ -50,6 +50,7 @@
       //if no error, insert into db
  	    if(count($errors)==0){
         $password_1=md5($password_1);
+        $email_hash=base64_encode($email);
         //$timestamp = date("Y-m-d H:i:s"); DB有預設了
       //若已有資料則判斷status，否則新增一筆
         $sql="SELECT accountstatus from mrbs_users where email='$email'";
@@ -68,15 +69,22 @@
             mysqli_query($db, $sql);
             $info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
             header("Refresh: 5;URL='$web_host'");
-           /* if(!$mail->Send()){
+           /*更改收件者郵件與內容
+           $mail->AddAddress($email);
+           $mail->Body = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
+                         "<br/>".
+                         "<a href=activate.php?$email_hash"." target=_blank>按此啟用帳號</a>".
+                         "<br/>".
+                         "若對本信件無任何印象，請安心忽略此郵件。";
+            if(!$mail->Send()){
                 $info = "Error: " . $mail->ErrorInfo;
             }
             else{
-                $sql="INSERT INTO mrbs_users_valid (email, timesstamp)
-                       VALUES('$email', '$timestamp')" or die(mysqli_error());
+                $sql="INSERT INTO mrbs_users_valid (email)
+                       VALUES('$email')";
                 mysqli_query($db, $sql);
-                $info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
-                header("Refresh: 5;URL='$web_host'");
+                //$info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
+                //header("Refresh: 5;URL='$web_host'");
             }*/
           }
           elseif($row['accountstatus']==1){
@@ -100,16 +108,23 @@
            }*/
           $info ='已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
           header("Refresh: 5;URL='$web_host'");
-          /*if(!$mail->Send()){
+          /*更改收件者郵件與內容
+          $mail->AddAddress($email);
+          $mail->Body = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
+                        "<br/>".
+                        "<a href=activate.php?$email_hash"." target=_blank>按此啟用帳號</a>".
+                        "<br/>".
+                        "若對本信件無任何印象，請安心忽略此郵件。";
+            if(!$mail->Send()){
                 $info = "Error: " . $mail->ErrorInfo;
             }
-          else{
-                $sql="INSERT INTO mrbs_users_valid (email, timesstamp)
-                        VALUES('$email', '$timestamp')" or die(mysqli_error());
+            else{
+                $sql="INSERT INTO mrbs_users_valid (email)
+                       VALUES('$email')";
                 mysqli_query($db, $sql);
-                $info ='已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
-                header("Refresh: 5;URL='$web_host'");
-          }*/
+                //$info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
+                //header("Refresh: 5;URL='$web_host'");
+            }*/
           
         }
  		  }
