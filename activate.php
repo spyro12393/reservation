@@ -11,6 +11,7 @@
  		$sql="select a.accountstatus accountstatus, b.timesstamp timesstamp from mrbs_users a join mrbs_users_valid b ON a.email=b.email where a.email='$email'";
         $result=mysqli_query($db,$sql);
         if(mysqli_num_rows($result)>0){
+            $email_hash=base64_encode($email);
         	$row=mysqli_fetch_assoc($result);
         	if($row['accountstatus']==0){
                 $time=strtotime($row['timesstamp']);
