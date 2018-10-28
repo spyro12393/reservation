@@ -18,9 +18,9 @@
     $mail->From = "XXXX@gmail.com";        //寄件者信箱
     $mail->FromName = "XXXX";                  //寄件者姓名
     $mail->Subject ="會議室預約系統-驗證信"; //郵件標題
-    $mail->Body = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。"."<br />"."<a href=\"'$web_host'\">按此啟用帳號</a>"."<br />"."若對本信件無任何印象，請安心忽略此郵件。"; //郵件內容
+    $mail->Body = ""; //郵件內容
     $mail->IsHTML(true);                             //郵件內容為html
-    $mail->AddAddress(base64_decode($_GET['para']));            //收件者郵件及名稱
+    $mail->AddAddress();            //收件者郵件及名稱
     /*
     if(!$mail->Send()){
         echo "Error: " . $mail->ErrorInfo;
