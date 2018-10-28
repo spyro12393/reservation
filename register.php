@@ -14,11 +14,11 @@ print_header();
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/awesomplete.css" />
     <script src="js/awesomplete.js"></script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
       function delayedRedirect(){
         window.location="admin.php";
       }
-    </script>
+    </script>-->
   </head>
   <body>
     <div class="header">

@@ -13,7 +13,7 @@
  	    $phone=mysqli_real_escape_string($db,$_POST['phone']);
  	    $password_1=mysqli_real_escape_string($db,$_POST['password_1']);
       $password_2=mysqli_real_escape_string($db,$_POST['password_2']);
-      $studentID= substr(mysqli_real_escape_string($db,$_POST['email']),0,9);
+      $studentID= substr(mysqli_real_escape_string($db,$_POST['email']),0,9);//
       //if error, push to errors array
       if(empty($username)){
         array_push($errors, "請輸入姓名");
@@ -50,7 +50,7 @@
       //if no error, insert into db
  	    if(count($errors)==0){
         $password_1=md5($password_1);
-        // $timestamp = date("Y-m-d H:i:s");
+        //$timestamp = date("Y-m-d H:i:s"); DB有預設了
       //若已有資料則判斷status，否則新增一筆
         $sql="SELECT accountstatus from mrbs_users where email='$email'";
         $result=mysqli_query($db,$sql);
@@ -63,8 +63,8 @@
                      VALUES('1','$username', '$email', '$phone', '$password_1', '0','$studentID' )";
             mysqli_query($db, $sql);
             //
-            $sql="INSERT INTO mrbs_users_valid (email, timesstamp)
-                       VALUES('$email', '$timestamp')";
+            $sql="INSERT INTO mrbs_users_valid (email)
+                        VALUES('$email')";
             mysqli_query($db, $sql);
             $info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
             header("Refresh: 5;URL='$web_host'");
@@ -86,16 +86,18 @@
         else{
           $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, studentID)
                    VALUES('1','$username', '$email', '$phone', '$password_1', '0', '$studentID')";
-           $result2=mysqli_query($db, $sql);
+          mysqli_query($db, $sql);         
+           /*$result2=mysqli_query($db, $sql);
            if($result2==false){
             printf("error1: %s\n", mysqli_error($db));
-           }
-          $sql="INSERT INTO mrbs_users_valid (email, timesstamp)
-                        VALUES('$email', '$timestamp')";
-          $result2=mysqli_query($db, $sql);
-          if($result2==false){
+           }*/
+          $sql="INSERT INTO mrbs_users_valid (email)
+                        VALUES('$email')";
+          mysqli_query($db, $sql);
+          /*$result3=mysqli_query($db, $sql);
+          if($result3==false){
             printf("error2: %s\n", mysqli_error($db));
-           }
+           }*/
           $info ='已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
           header("Refresh: 5;URL='$web_host'");
           /*if(!$mail->Send()){
