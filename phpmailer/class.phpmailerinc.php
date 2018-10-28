@@ -20,7 +20,7 @@
     $mail->Subject ="會議室預約系統-驗證信"; //郵件標題
     $mail->Body = ""; //郵件內容
     $mail->IsHTML(true);                             //郵件內容為html
-    $mail->AddAddress();            //收件者郵件及名稱
+    $mail->AddAddress('test@gmail.com');            //收件者郵件及名稱
     /*
     if(!$mail->Send()){
         echo "Error: " . $mail->ErrorInfo;
