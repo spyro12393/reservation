@@ -12,7 +12,11 @@ function print_login_failed()
 {
   echo "<p>" . get_vocab('unknown_user') . "</p>\n";
 }
-
+//JHsiang
+function print_account_inactivated()
+{
+  echo "<p>" . get_vocab('user_account_inactivated') . "</p>\n";
+}
 
 /*
   Display the login form. 
