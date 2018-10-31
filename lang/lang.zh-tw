@@ -113,6 +113,7 @@ $vocab["users.name"]          = "名稱";
 $vocab["users.password"]      = "密碼";
 $vocab["users.level"]         = "權限";
 $vocab["unknown_user"]       = "使用者不存在或密碼錯誤";
+$vocab["user_account_inactivated"]       = "帳號尚未開通";
 $vocab["login"]              = "登入";
 $vocab["logoff"]             = "登出";
 $vocab["username_or_email"]  = "使用者名稱或電子郵件地址";
