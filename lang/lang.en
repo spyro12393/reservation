@@ -209,6 +209,9 @@ $vocab["changes_saved"]           = "Changes saved";
 // Used in pending.php
 $vocab["pending"]            = "Bookings awaiting approval";
 $vocab["none_outstanding"]   = "You have no bookings awaiting approval.";
+$vocab["tanent"]             = " Tanent";
+$vocab["tanent"]             = " User Account";
+
 
 // Authentication stuff
 $vocab["accessdenied"]       = "Access Denied";
