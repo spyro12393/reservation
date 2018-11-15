@@ -165,6 +165,15 @@ if (isset($action))
         print_login_form(this_page(), $target_url, $returl);
         exit();
       }
+      //JHsiang start
+      else if(($valid_username = authValidateUser($username, $password)) === 'inactivated')
+      {
+        print_header();
+        print_account_inactivated();
+        print_login_form(this_page(), $target_url, $returl);
+        exit();
+      }
+      //JHsiang end
       // Successful login.  As a defence against session fixation, regenerate
       // the session id and delete the old session.
       session_regenerate_id(true);

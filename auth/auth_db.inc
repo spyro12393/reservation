@@ -115,6 +115,7 @@ function checkPassword($password, $password_hash, $column_name, $column_value)
  *   false    - The pair are invalid or do not exist
  *   string   - The validated username
  */
+ //JHsiang
 function authValidateUser($user, $pass)
 {
   // The string $user that the user logged on with could be either a username or
@@ -131,8 +132,33 @@ function authValidateUser($user, $pass)
 
   $valid_usernames = array_merge($valid_usernames, authValidateEmail($user, $pass));
   $valid_usernames = array_unique($valid_usernames);
-
-  return (count($valid_usernames) == 1) ? $valid_usernames[0] : false;
+  
+  //JHsiang start
+  if(count($valid_usernames) == 1)
+  {
+    global $tbl_users;
+    $sql="SELECT accountstatus FROM $tbl_users WHERE name = '$valid_usernames[0]'";
+    $sql_params=array();
+    $res = db()->query($sql, $sql_params);
+    $row = $res->row_keyed(0);
+  
+    if ($row['accountstatus']==0)
+      {
+        // 代表未開通
+        return 'inactivated';
+      }
+    else if($row['accountstatus']==1)
+      {
+        //已開通
+        return $valid_usernames[0];
+      }
+  }
+  else
+  {
+    return false;
+  }
+  //return (count($valid_usernames) == 1) ? $valid_usernames[0] : false;
+  //JHsiang end
 }
 
 

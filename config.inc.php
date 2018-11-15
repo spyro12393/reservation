@@ -79,5 +79,5 @@ $auth["session"]="php";
 $auth['only_admin_can_see_other_users'] = true;
 $auth['show_bulk_delete'] = true;
 
-//for web--Jason
-$web_host = "http://140.115.188.87/reservation/admin.php";
+//for web--Jason. 1115 modified by JJ
+$web_host = "https://booking.ncu.edu.tw/admin.php";
