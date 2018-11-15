@@ -117,14 +117,16 @@ else
   # A 2D array listing the columns that need to be converted to UTF-8
   $update_columns = array
   (
-    $tbl_area => array('area_name', 'custom_html'),
+    $tbl_area => array('area_name', 'custom_html'), // edit by Mansion
     $tbl_room => array('room_name', 'description', 'room_admin_email',
                        'custom_html'),
     $tbl_entry => array('create_by', 'name', 'description', 'info_user',
                         'info_text'),
     $tbl_repeat => array('create_by', 'name', 'description', 'info_user',
                          'info_text'),
-    $tbl_users => array('name', 'password_hash', 'email')
+    $tbl_users => array('name', 'password_hash', 'email'), // edit by Mansion
+
+    $tbl_deptmanager => array('aid', 'uid', 'uname') // add by Mansion
   );
 
   $admin_username = get_form_var('admin_username', 'string');

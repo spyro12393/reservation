@@ -1010,7 +1010,7 @@ $mail_settings['admin_on_bookings']      = true;  // the addresses defined by $m
 $mail_settings['area_admin_on_bookings'] = true;  // the area administrator
 $mail_settings['room_admin_on_bookings'] = true;  // the room administrator
 $mail_settings['booker']                 = true;  // the person making the booking
-$mail_settings['book_admin_on_approval'] = true;  // the booking administrator when booking approval is enabled
+$mail_settings['book_admin_on_approval'] = false;  // the booking administrator when booking approval is enabled
                                                    // (which is the MRBS admin, but this setting allows MRBS
                                                    // to be extended to have separate booking approvers)     
 
@@ -1059,7 +1059,7 @@ $mail_settings['icalendar'] = true; // Set to true to include iCalendar details
 // -----------------------------------------
 
 // Set the language used for emails (choose an available lang.* file).
-$mail_settings['admin_lang'] = 'en';   // Default is 'en'.
+$mail_settings['admin_lang'] = 'zh-tw';   // Default is 'en'.
 
 
 // HOW TO EMAIL - ADDRESSES
@@ -1072,7 +1072,7 @@ $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 // if you are using any other authentication scheme then the following settings allow
 // you to specify a domain name that will be appended to the username to produce a
 // valid email address (eg "@domain.com").
-$mail_settings['domain'] = '@mail.ncuisq.tk';
+$mail_settings['domain'] = '@cc.ncu.edu.tw';
 // If you use $mail_settings['domain'] above and username returned by mrbs contains extra
 // strings appended like domain name ('username.domain'), you need to provide
 // this extra string here so that it will be removed from the username.
@@ -1138,7 +1138,7 @@ $mail_settings['ics_filename'] = "booking";
 // If you are not getting emails it can be helpful by telling you (a) whether the mail functions
 // are being called in the first place (b) whether there are addresses to send email to and (c)
 // the result of the mail sending operation.
-$mail_settings['debug'] = true;
+$mail_settings['debug'] = false;
 // Where to send the debug output.  Can be 'browser' or 'log' (for the error_log)
 $mail_settings['debug_output'] = 'log';
 

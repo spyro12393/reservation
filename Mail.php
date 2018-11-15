@@ -129,7 +129,7 @@ class Mail
 
         // get the Subject out of the headers array so that we can
         // pass it as a seperate argument to mail().
-        $subject = '';
+        $subject = ''; //set by Mansion
         if (isset($headers['Subject'])) {
             $subject = $headers['Subject'];
             unset($headers['Subject']);

@@ -60,38 +60,38 @@ function display_buttons($row, $is_series)
 
     $form->render();
     
-    // more info
-    $info_time = ($is_series) ? $row['repeat_info_time'] : $row['entry_info_time'];
-    $info_user = ($is_series) ? $row['repeat_info_user'] : $row['entry_info_user'];
-    if (empty($info_time))
-    {
-      $info_title = get_vocab("no_request_yet");
-    }
-    else
-    {
-      $info_title = get_vocab("last_request") . ' ' . time_date_string($info_time);
-      if (!empty($info_user))
-      {
-        $info_title .= " " . get_vocab("by") . " $info_user";
-      }
-    }
+    // // more info // comment by Mansion
+    // $info_time = ($is_series) ? $row['repeat_info_time'] : $row['entry_info_time'];
+    // $info_user = ($is_series) ? $row['repeat_info_user'] : $row['entry_info_user'];
+    // if (empty($info_time))
+    // {
+    //   $info_title = get_vocab("no_request_yet");
+    // }
+    // else
+    // {
+    //   $info_title = get_vocab("last_request") . ' ' . time_date_string($info_time);
+    //   if (!empty($info_user))
+    //   {
+    //     $info_title .= " " . get_vocab("by") . " $info_user";
+    //   }
+    // }
     
-    $form = new Form();
+    // $form = new Form();
 
-    $attributes = array('action' => "view_entry.php?$query_string",
-                        'method' => 'post');                   
-    $form->setAttributes($attributes);
+    // $attributes = array('action' => "view_entry.php?$query_string",
+    //                     'method' => 'post');                   
+    // $form->setAttributes($attributes);
     
-    $hidden_inputs = array('action' => 'more_info',
-                           'returl' => $returl);
-    $form->addHiddenInputs($hidden_inputs);
+    // $hidden_inputs = array('action' => 'more_info',
+    //                        'returl' => $returl);
+    // $form->addHiddenInputs($hidden_inputs);
     
-    $element = new ElementInputSubmit();
-    $element->setAttributes(array('value' => get_vocab('more_info'),
-                                  'title' => $info_title));
-    $form->addElement($element);
+    // $element = new ElementInputSubmit();
+    // $element->setAttributes(array('value' => get_vocab('more_info'),
+    //                               'title' => $info_title));
+    // $form->addElement($element);
 
-    $form->render();
+    // $form->render();
   }
   else
   {
@@ -133,8 +133,8 @@ function display_table_head()
   echo "<tr>\n";
   // We give some columns a type data value so that the JavaScript knows how to sort them
   echo "<th class=\"control\">&nbsp;</th>\n";
-  echo "<th class=\"header_name\">" . get_vocab("entry") . "</th>\n";
-  echo "<th class=\"header_create\">" . get_vocab("createdby") . "</th>\n";
+  echo "<th class=\"header_name\">" . get_vocab("tanent") . "</th>\n";
+  echo "<th class=\"header_create\">" . get_vocab("account") . "</th>\n";
   echo "<th class=\"header_area\">" . get_vocab("area") . "</th>\n";
   echo "<th class=\"header_room\">" . get_vocab("room") . "</th>\n";
   echo "<th class=\"header_start_time\"><span class=\"normal\" data-type=\"title-numeric\">" . get_vocab("start_date") . "</span></th>\n";
@@ -174,6 +174,7 @@ function display_series_title_row($row)
   // reservation name, with a link to the view_entry page
   echo "<td><a href=\"view_entry.php?id=".$row['repeat_id']."&amp;series=1\">" . htmlspecialchars($row['name']) ."</a></td>\n";
   
+  
   // create_by, area and room names
   echo "<td>" . htmlspecialchars($row['create_by']) . "</td>\n";
   echo "<td>"   . htmlspecialchars($row['area_name']) . "</td>\n";
@@ -186,7 +187,7 @@ function display_series_title_row($row)
   echo "</td>\n";
   
   echo "<td>\n";
-  display_buttons($row, TRUE);
+  display_buttons($row, TRUE); 
   echo "</td>\n";
   echo "</tr>\n";
 }
@@ -269,6 +270,12 @@ if (!$is_admin)
   $sql .= " AND E.create_by=?";
   $sql_params[] = $user;
 }
+// dept managers can only see their own buildings    // add by Mansion   
+if (authGetUserLevel($user) == 2)
+{
+  $sql .= " AND A.id in (SELECT aid FROM mrbs_deptmanager AS D WHERE D.uname = '$user')";
+} //TODO: change mrbs_deptmanager to $tbl_deptmanager
+
 // We want entries for a series to appear together so that we can display
 // them as a separate table below the main entry for the series. 
 $sql .= " ORDER BY repeat_id, start_time";

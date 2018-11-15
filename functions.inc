@@ -2473,6 +2473,8 @@ function make_room_select_html ($link, $area, $current, $year, $month, $day)
                    "</div>\n" .
                    "</form>\n";
     }
+ 
+
     else  // list format
     {
       $out_html .= "<ul>\n";
