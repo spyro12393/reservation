@@ -976,22 +976,22 @@ $allow_cli = false;
 // --------------
 
 // Set the email address of the From field. Default is 'admin_email@your.org'
-$mail_settings['from'] = 'no-reply@mail.ncuisq.tk';
+$mail_settings['from'] = 'no-reply@booking.ncu.edu.tw';
 
 // The address to be used for the ORGANIZER in an iCalendar event.   Do not make
 // this email address the same as the admin email address or the recipients 
 // email address because on some mail systems, eg IBM Domino, the iCalendar email
 // notification is silently discarded if the organizer's email address is the same 
 // as the recipient's.  On other systems you may get a "Meeting not found" message.
-$mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
+$mail_settings['organizer'] = 'no-reply@booking.ncu.edu.tw';
 
 // Set the recipient email. Default is 'admin_email@your.org'. You can define
 // more than one recipient like this "john@doe.com,scott@tiger.com"
-$mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw';
+$mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw, a0983069681@gmail.com';
 
 // Set email address of the Carbon Copy field. Default is ''. You can define
 // more than one recipient (see 'recipients')
-$mail_settings['cc'] = '';
+$mail_settings['cc'] = 'spyro12393@gmail.com';
 
 // Set to true if you want the cc addresses to be appended to the to line.
 // (Some email servers are configured not to send emails if the cc or bcc
@@ -1048,7 +1048,7 @@ $mail_settings['no_mail_default'] = false; // Default value for the 'no mail' ch
 $mail_settings['details']   = true; // Set to true if you want full booking details;
                                      // otherwise you just get a link to the entry
 $mail_settings['html']      = true; // Set to true if you want HTML mail
-$mail_settings['icalendar'] = true; // Set to true to include iCalendar details
+$mail_settings['icalendar'] = false; // Set to true to include iCalendar details
                                      // which can be imported into a calendar.  (Note:
                                      // iCalendar details will not be sent for areas
                                      // that use periods as there isn't a mapping between
@@ -1072,7 +1072,7 @@ $mail_settings['admin_lang'] = 'zh-tw';   // Default is 'en'.
 // if you are using any other authentication scheme then the following settings allow
 // you to specify a domain name that will be appended to the username to produce a
 // valid email address (eg "@domain.com").
-$mail_settings['domain'] = '@cc.ncu.edu.tw';
+$mail_settings['domain'] = '@booking.ncu.edu.tw';
 // If you use $mail_settings['domain'] above and username returned by mrbs contains extra
 // strings appended like domain name ('username.domain'), you need to provide
 // this extra string here so that it will be removed from the username.
@@ -1108,7 +1108,7 @@ $mail_settings['qmail']['qmail-inject-path'] = '/usr/bin/qmail-inject';
  */
 
 // These settings are only used with the "smtp" backend
-$smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
+$smtp_settings['host'] = 'booking.ncu.edu.tw';  // SMTP server
 $smtp_settings['port'] = 25;           // SMTP port number
 $smtp_settings['auth'] = true;        // Whether to use SMTP authentication
 $smtp_settings['secure'] = '';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
@@ -1116,7 +1116,7 @@ $smtp_settings['secure'] = '';         // Encryption method: '', 'tls' or 'ssl' 
                                        // will be used, unless the 'disable_opportunistic_tls' configuration parameter shown below is
                                        // set to true.
 $smtp_settings['username'] = 'no-reply';       // Username (if using authentication)
-$smtp_settings['password'] = 'ggininder';       // Password (if using authentication)
+$smtp_settings['password'] = 'ncu@ggininder';       // Password (if using authentication)
 $smtp_settings['disable_opportunistic_tls'] = false; // Set this to true to disable
                                                      // opportunistic TLS
                                                      // https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#opportunistic-tls

@@ -44,7 +44,7 @@ $dbsys = "mysql";
 // to use Unix Domain Sockets instead of TCP/IP. For mysql "localhost"
 // tells the system to use Unix Domain Sockets, and $db_port will be ignored;
 // if you want to force TCP connection you can use "127.0.0.1".
-$db_host = "140.115.188.87";
+$db_host = "booking.ncu.edu.tw";
 // If you need to use a non standard port for the database connection you
 // can uncomment the following line and specify the port number
 $db_port = 3307;
