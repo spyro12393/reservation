@@ -1,4 +1,5 @@
 **Adding**
+-----------9月完成以下-----------
 adding.txt    --changes records
 session.php.inc  --register url route
 style.css    --css for new php
@@ -12,8 +13,8 @@ activate.php   --activate acoount
 infoofphp.php --phpinfo
 config.inc.php --db and web server info
 phpmailer(folder) --mailer setup
-
-//unsloved
-redirect to admin.php after sucessfully register
-timer server side
-para in class.phpmailerinc.php
+-----------10/31完成以下-----------
+session.php.inc --新增判斷'帳號未開通'
+auth_db.inc --新增accountstatus卡控
+functions_session.inc --新增print_acount_inactivated函式
+lang.zh-tw --新增詞彙 user_account_inactivated
