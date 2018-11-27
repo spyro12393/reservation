@@ -112,7 +112,7 @@ $mrbs_company_logo = "images/logo.gif";    // name of your logo file.   This exa
 //$mrbs_company_more_info = "You can put additional information here";  // e.g. "XYZ Department"
 
 // Uncomment this next line to have a link to your organisation in the header
-$mrbs_company_url = "http://pdc.adm.ncu.edu.tw/course_index.asp?roadno=107";
+$mrbs_company_url = "https://booking.ncu.edu.tw";
 
 // This is to fix URL problems when using a proxy in the environment.
 // If links inside MRBS appear broken, then specify here the URL of
@@ -987,11 +987,11 @@ $mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
 
 // Set the recipient email. Default is 'admin_email@your.org'. You can define
 // more than one recipient like this "john@doe.com,scott@tiger.com"
-$mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw';
+$mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw, a0983069681@gmail.com';
 
 // Set email address of the Carbon Copy field. Default is ''. You can define
 // more than one recipient (see 'recipients')
-$mail_settings['cc'] = '';
+$mail_settings['cc'] = 'spyro12393@gmail.com';
 
 // Set to true if you want the cc addresses to be appended to the to line.
 // (Some email servers are configured not to send emails if the cc or bcc
@@ -1048,7 +1048,7 @@ $mail_settings['no_mail_default'] = false; // Default value for the 'no mail' ch
 $mail_settings['details']   = true; // Set to true if you want full booking details;
                                      // otherwise you just get a link to the entry
 $mail_settings['html']      = true; // Set to true if you want HTML mail
-$mail_settings['icalendar'] = true; // Set to true to include iCalendar details
+$mail_settings['icalendar'] = false; // Set to true to include iCalendar details
                                      // which can be imported into a calendar.  (Note:
                                      // iCalendar details will not be sent for areas
                                      // that use periods as there isn't a mapping between
@@ -1072,7 +1072,7 @@ $mail_settings['admin_lang'] = 'zh-tw';   // Default is 'en'.
 // if you are using any other authentication scheme then the following settings allow
 // you to specify a domain name that will be appended to the username to produce a
 // valid email address (eg "@domain.com").
-$mail_settings['domain'] = '@cc.ncu.edu.tw';
+$mail_settings['domain'] = '@mail.ncuisq.tk';
 // If you use $mail_settings['domain'] above and username returned by mrbs contains extra
 // strings appended like domain name ('username.domain'), you need to provide
 // this extra string here so that it will be removed from the username.
@@ -1109,15 +1109,15 @@ $mail_settings['qmail']['qmail-inject-path'] = '/usr/bin/qmail-inject';
 
 // These settings are only used with the "smtp" backend
 $smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
-$smtp_settings['port'] = 25;           // SMTP port number
+$smtp_settings['port'] = 587;           // SMTP port number
 $smtp_settings['auth'] = true;        // Whether to use SMTP authentication
-$smtp_settings['secure'] = '';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
+$smtp_settings['secure'] = 'ssl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
                                        // server doesn't advertise it. Conversely if you specify '' and the server advertises TLS, TLS
                                        // will be used, unless the 'disable_opportunistic_tls' configuration parameter shown below is
                                        // set to true.
 $smtp_settings['username'] = 'no-reply';       // Username (if using authentication)
-$smtp_settings['password'] = 'ggininder';       // Password (if using authentication)
-$smtp_settings['disable_opportunistic_tls'] = false; // Set this to true to disable
+$smtp_settings['password'] = 'ncu@ggininder';       // Password (if using authentication)
+$smtp_settings['disable_opportunistic_tls'] = true; // Set this to true to disable
                                                      // opportunistic TLS
                                                      // https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#opportunistic-tls
 // If you're having problems with sending email to a TLS-enabled SMTP server *which you trust* you can change the following

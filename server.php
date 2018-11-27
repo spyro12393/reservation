@@ -1,6 +1,7 @@
  <?php
-    //require "defaultincludes.inc";
-    require_once "phpmailer/class.phpmailerinc.php";
+    require_once "defaultincludes.inc";
+    require_once "lib/PHPMailer/PHPMailerAutoload.php";
+
     $errors=array();
     //
     $db = mysqli_connect($db_host,$db_login,$db_password,$db_database,$db_port);
@@ -18,7 +19,7 @@
       if(empty($username)){
         array_push($errors, "請輸入姓名");
  	    }
- 	    if(empty($email)){
+      if(empty($email)){
         array_push($errors, "請輸入學校信箱");
  	    }
  	    else{
@@ -26,7 +27,7 @@
           array_push($errors, "信箱格式應為學號+@cc.ncu.edu.tw");
  	  	  }
  	    }
- 	    if(empty($phone)){
+      if(empty($phone)){
         array_push($errors, "請輸入手機號碼");
  	    }
  	    if(empty($password_1)){
@@ -67,25 +68,49 @@
             $sql="INSERT INTO mrbs_users_valid (email)
                         VALUES('$email')";
             mysqli_query($db, $sql);
-            $info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
+            $info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至首頁';
             header("Refresh: 5;URL='$web_host'");
-           /*更改收件者郵件與內容
-           $mail->AddAddress($email);
-           $mail->Body = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
-                         "<br/>".
-                         "<a href=activate.php?$email_hash"." target=_blank>按此啟用帳號</a>".
-                         "<br/>".
-                         "若對本信件無任何印象，請安心忽略此郵件。";
-            if(!$mail->Send()){
-                $info = "Error: " . $mail->ErrorInfo;
+            //更改收件者郵件與內容
+            $mail = new PHPMailer;
+
+            //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'booking.ncu.edu.tw';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = 'no-reply';                 // SMTP username
+            $mail->Password = 'ncu@ggininder';                           // SMTP password
+            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 465;                                    // TCP port to connect to
+
+            $mail->setFrom('no-reply@booking.ncu.edu.tw', 'no-reply');
+            $mail->addAddress($email, 'Receiver');     // Add a recipient
+            //$mail->addAddress('ellen@example.com');               // Name is optional
+            //$mail->addReplyTo('info@example.com', 'Information');
+            //$mail->addCC('cc@example.com');
+            //$mail->addBCC('bcc@example.com');
+
+            //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+            //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+            $mail->isHTML(true);                                  // Set email format to HTML
+
+            $mail->Subject = 'NCU_MRBS_Verification';
+            $mail->Body    = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
+                             "<br/>".
+                             "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
+                             "<br/>".
+                             "若對本信件無任何印象，請安心忽略此郵件。";
+            //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            if(!$mail->send()) {
+              array_push($errors, "Message could not be sent. Please contact administrator");
+              //echo 'Message could not be sent. Please contact administrator';
+              //echo 'Mailer Error: ' . $mail->ErrorInfo;
+              } else {
+             //echo 'Message has been sent';
+              $info.='<br/>'.'Message has been sent';
             }
-            else{
-                $sql="INSERT INTO mrbs_users_valid (email)
-                       VALUES('$email')";
-                mysqli_query($db, $sql);
-                //$info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
-                //header("Refresh: 5;URL='$web_host'");
-            }*/
+
           }
           elseif($row['accountstatus']==1){
             $info='*帳號已被註冊';
@@ -106,25 +131,49 @@
           if($result3==false){
             printf("error2: %s\n", mysqli_error($db));
            }*/
-          $info ='已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
+          $info ='已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至首頁';
           header("Refresh: 5;URL='$web_host'");
           //更改收件者郵件與內容
-          /*$mail->AddAddress($email);
-          $mail->Body = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
-                        "<br/>".
-                        "<a href=activate.php?$email_hash"." target=_blank>按此啟用帳號</a>".
-                        "<br/>".
-                        "若對本信件無任何印象，請安心忽略此郵件。";
-            if(!$mail->Send()){
-                $info = "Error: " . $mail->ErrorInfo;
+          $mail = new PHPMailer;
+
+            //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'booking.ncu.edu.tw';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = 'no-reply';                 // SMTP username
+            $mail->Password = 'ncu@ggininder';                           // SMTP password
+            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 465;                                    // TCP port to connect to
+
+            $mail->setFrom('no-reply@booking.ncu.edu.tw', 'no-reply');
+            $mail->addAddress($email, 'Receiver');     // Add a recipient
+            //$mail->addAddress('ellen@example.com');               // Name is optional
+            //$mail->addReplyTo('info@example.com', 'Information');
+            //$mail->addCC('cc@example.com');
+            //$mail->addBCC('bcc@example.com');
+
+            //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+            //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+            $mail->isHTML(true);                                  // Set email format to HTML
+
+            $mail->charset='UTF-8';
+            $mail->Subject = 'NCU_MRBS_Verification';
+            $mail->Body    = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
+                             "<br/>".
+                             "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
+                             "<br/>".
+                             "若對本信件無任何印象，請安心忽略此郵件。";
+            //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            if(!$mail->send()) {
+              array_push($errors, "Message could not be sent. Please contact administrator");
+              //echo 'Message could not be sent.';
+              //echo 'Mailer Error: ' . $mail->ErrorInfo;
+              } else {
+              //echo 'Message has been sent';
+              $info.='<br/>'.'Message has been sent';
             }
-            else{
-                $sql="INSERT INTO mrbs_users_valid (email)
-                       VALUES('$email')";
-                mysqli_query($db, $sql);
-                //$info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至登入頁面';
-                //header("Refresh: 5;URL='$web_host'");
-            }*/
           
         }
  		  }
