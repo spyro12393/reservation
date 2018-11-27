@@ -224,7 +224,7 @@ $vocab["users.timestamp"]    = "Last updated";
 $vocab["unknown_user"]       = "Unknown user";
 $vocab["login"]              = "Log in";
 $vocab["logoff"]             = "Log off";
-$vocab["username_or_email"]  = "Username or email address";
+$vocab["username_or_email"]  = "Student ID or email address";
 
 // Database upgrade code
 $vocab["database_login"]           = "Database login";
