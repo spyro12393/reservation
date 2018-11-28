@@ -17,7 +17,7 @@ echo "<h3>" . get_vocab("about_mrbs") . "</h3>\n";
 if (!$is_admin)
 {
   echo "<table class=\"details list\">\n";
-  echo "<tr><td><a href=\"http://mrbs.sourceforge.net\">" . get_vocab("mrbs") . "</a></td><td>" . get_mrbs_version() . "</td></tr>\n";
+  // echo "<tr><td><a href=\"http://mrbs.sourceforge.net\">" . get_vocab("mrbs") . "</a></td><td>" . get_mrbs_version() . "</td></tr>\n";
   echo "</table>\n";
 }
 else
@@ -52,9 +52,9 @@ echo "\n</p>\n";
 
 echo "<h3>" . get_vocab("help") . "</h3>\n";
 echo "<p>\n";
-echo get_vocab("please_contact") . '<a href="mailto:' . rawurlencode($mrbs_admin_email)
+echo get_vocab("for_any_questions") . get_vocab("please_contact") . '<a href="mailto:' . rawurlencode($mrbs_admin_email)
   . '">' . htmlspecialchars($mrbs_admin)
-  . "</a> " . get_vocab("for_any_questions") . "\n";
+  . "</a> "  . "。\n";
 echo "</p>\n";
  
 require_once "site_faq/site_faq" . $faqfilelang . ".html";
