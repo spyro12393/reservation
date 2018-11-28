@@ -315,7 +315,7 @@ $search["count"] = 20;
 // Page refresh time (in seconds). Set to 0 to disable
 // (Note that if MRBS detects that a client is on a metered network
 // connection it will disable page refresh for that client.)
-$refresh_rate = 0;
+$refresh_rate = 30;
 
 // Refresh rate (in seconds) for Ajax checking of valid bookings on the edit_entry page
 // Set to 0 to disable
@@ -327,8 +327,8 @@ $ajax_refresh_rate = 10;
 $simple_trailer = false;
 
 // should areas be shown as a list or a drop-down select box?
-$area_list_format = "list";
-//$area_list_format = "select";
+//$area_list_format = "list";
+$area_list_format = "select";
 
 // Entries in monthly view can be shown as start/end slot, brief description or
 // both. Set to "description" for brief description, "slot" for time slot and
@@ -367,7 +367,7 @@ $display_calendar_bottom = false;
 
 // Define default starting view (month, week or day)
 // Default is day
-$default_view = "day";
+$default_view = "week";
 
 // Define default room to start with (used by index.php)
 // Room numbers can be determined by looking at the Edit or Delete URL for a
@@ -976,14 +976,14 @@ $allow_cli = false;
 // --------------
 
 // Set the email address of the From field. Default is 'admin_email@your.org'
-$mail_settings['from'] = 'no-reply@mail.ncuisq.tk';
+$mail_settings['from'] = 'no-reply@booking.ncu.edu.tw';
 
 // The address to be used for the ORGANIZER in an iCalendar event.   Do not make
 // this email address the same as the admin email address or the recipients 
 // email address because on some mail systems, eg IBM Domino, the iCalendar email
 // notification is silently discarded if the organizer's email address is the same 
 // as the recipient's.  On other systems you may get a "Meeting not found" message.
-$mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
+$mail_settings['organizer'] = 'admin@booking.ncu.edu.tw';
 
 // Set the recipient email. Default is 'admin_email@your.org'. You can define
 // more than one recipient like this "john@doe.com,scott@tiger.com"
@@ -1108,7 +1108,7 @@ $mail_settings['qmail']['qmail-inject-path'] = '/usr/bin/qmail-inject';
  */
 
 // These settings are only used with the "smtp" backend
-$smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
+$smtp_settings['host'] = 'booking.ncu.edu.tw';  // SMTP server
 $smtp_settings['port'] = 25;           // SMTP port number
 $smtp_settings['auth'] = true;        // Whether to use SMTP authentication
 $smtp_settings['secure'] = '';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
