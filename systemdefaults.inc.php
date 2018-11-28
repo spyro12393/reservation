@@ -1174,7 +1174,7 @@ $override_locale = "";
 // IF your language faq file is available, set $faqfilelang to match the
 // end of the file name, including the underscore (ie. for site_faq_fr.html
 // use "_fr"
-$faqfilelang = ""; 
+$faqfilelang = "_tw"; 
 
 // Language selection when run from the command line
 $cli_language = "en";
