@@ -46,7 +46,7 @@ $enable_periods = FALSE;  // Default value for new areas
 
 // Resolution - what blocks can be booked, in seconds.
 // Default is half an hour: 1800 seconds.
-$resolution = (30 * 60);  // DEFAULT VALUE FOR NEW AREAS
+$resolution = (60 * 60);  // DEFAULT VALUE FOR NEW AREAS
 
 // If the following variable is set to TRUE, the resolution of bookings
 // is forced to be the value of $resolution, rather than the resolution set
