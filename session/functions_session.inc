@@ -128,6 +128,7 @@ function print_logon_button($target_url)
   // The submit button
   $element = new ElementInputSubmit();
   $element->setAttribute('value', get_vocab('login'));
+  $element->setAttribute('class', 'btn btn-outline-light btn-sm'); //Set new bs CSS for submit button.
   $form->addElement($element);
   
   $form->render();
@@ -150,6 +151,7 @@ function print_register_button($target_url)
   // The submit button
   $element = new ElementInputSubmit();
   $element->setAttribute('value', get_vocab('register'));
+  $element->setAttribute('class', 'btn btn-outline-light btn-sm'); //Set new bs CSS for submit button.
   $form->addElement($element);
   
   $form->render();
@@ -172,6 +174,7 @@ function print_logoff_button($target_url)
   // The submit button
   $element = new ElementInputSubmit();
   $element->setAttribute('value', get_vocab('logoff'));
+  $element->setAttribute('class', 'btn btn-outline-light btn-sm'); //Set new bs CSS for submit button.
   $form->addElement($element);
   
   $form->render();

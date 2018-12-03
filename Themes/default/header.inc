@@ -21,6 +21,7 @@ function print_head($simple=false)
   {
     // Add the CSRF token so that JavaScript can use it
     echo "<meta name=\"csrf_token\" content=\"" . htmlspecialchars(Form::getToken()) . "\">\n";
+    echo "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css\" integrity=\"sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB\" crossorigin=\"anonymous\">";
   }
   
   echo "<title>" . get_vocab("mrbs") . "</title>\n";
@@ -107,7 +108,7 @@ function print_goto_date($day, $month, $year, $area, $room)
   // the date is changed, we still need a submit button because there
   // are occasions when you want to go to the date without changing it -
   // for example when you've been on a Search or Report page
-  echo "<input type=\"submit\" value=\"" . get_vocab("goto") . "\">\n";
+  echo "<input class=\"btn btn-outline-light btn-sm\" type=\"submit\" value=\"" . get_vocab("goto") . "\">\n";
 
   echo "</form>\n";
   

@@ -2400,7 +2400,7 @@ function make_area_select_html($link, $current, $year, $month, $day)
       $out_html .= "<form id=\"areaChangeForm\" method=\"get\" action=\"$link\">\n" .
                    Form::getTokenHTML() . "\n" .
                    "<div>\n" .
-                   "<select class=\"room_area_select\" id=\"area_select\" name=\"area\" onchange=\"this.form.submit()\">";
+                   "<select class=\"room_area_select\" id=\"area_select\" name=\"area\" onchange=\"this.form.submit()\">"; //room_area_select
       foreach ($areas as $area_id => $area_name)
       {
         $selected = ($area_id == $current) ? "selected=\"selected\"" : "";
