@@ -1048,7 +1048,7 @@ $mail_settings['no_mail_default'] = false; // Default value for the 'no mail' ch
 $mail_settings['details']   = true; // Set to true if you want full booking details;
                                      // otherwise you just get a link to the entry
 $mail_settings['html']      = true; // Set to true if you want HTML mail
-$mail_settings['icalendar'] = true; // Set to true to include iCalendar details
+$mail_settings['icalendar'] = false; // Set to true to include iCalendar details
                                      // which can be imported into a calendar.  (Note:
                                      // iCalendar details will not be sent for areas
                                      // that use periods as there isn't a mapping between
@@ -1059,7 +1059,7 @@ $mail_settings['icalendar'] = true; // Set to true to include iCalendar details
 // -----------------------------------------
 
 // Set the language used for emails (choose an available lang.* file).
-$mail_settings['admin_lang'] = 'zh-tw';   // Default is 'en'.
+$mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 
 
 // HOW TO EMAIL - ADDRESSES
