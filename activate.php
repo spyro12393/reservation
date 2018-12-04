@@ -32,14 +32,14 @@
                      //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
                     $mail->isSMTP();                                      // Set mailer to use SMTP
-                    $mail->Host = 'booking.ncu.edu.tw';  // Specify main and backup SMTP servers
-                    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                    $mail->Username = 'no-reply';                 // SMTP username
-                    $mail->Password = 'ncu@ggininder';                           // SMTP password
-                    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-                    $mail->Port = 465;                                    // TCP port to connect to
+                    $mail->Host = $smtp_settings['host'];  // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = $smtp_settings['auth'];                               // Enable SMTP authentication
+                    $mail->Username = $smtp_settings['username'];                 // SMTP username
+                    $mail->Password = $smtp_settings['password'];                           // SMTP password
+                    $mail->SMTPSecure = $smtp_settings['secure'];                            // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = $smtp_settings['port'];                                    // TCP port to connect to
 
-                    $mail->setFrom('no-reply@booking.ncu.edu.tw', 'no-reply');
+                    $mail->setFrom($smtp_settings['from'], $smtp_settings['username']);
                     $mail->addAddress($email, 'Receiver');     // Add a recipient
                     //$mail->addAddress('ellen@example.com');               // Name is optional
                     //$mail->addReplyTo('info@example.com', 'Information');
