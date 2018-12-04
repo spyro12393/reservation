@@ -30,7 +30,7 @@ namespace MRBS;
 
 // $enable_periods is settable on a per-area basis.
 
-$enable_periods = FALSE;  // Default value for new areas
+$enable_periods = TRUE;  // Default value for new areas
 
  
 // TIMES SETTINGS
@@ -117,8 +117,22 @@ $eveningends_minutes   = 0;   // must be integer in range 0-59
 
 // NOTE:  The maximum number of periods is 60.   Do not define more than this.
 unset($periods);    // Include this line when copying to config.inc.php
-$periods[] = "Period 1";
-$periods[] = "Period 2";
+$periods[] = "08:00 - 08:50";
+$periods[] = "09:00 - 09:50";
+$periods[] = "10:00 - 10:50";
+$periods[] = "11:00 - 11:50";
+$periods[] = "12:00 - 12:50";
+$periods[] = "13:00 - 13:50";
+$periods[] = "14:00 - 14:50";
+$periods[] = "15:00 - 15:50";
+$periods[] = "16:00 - 16:50";
+$periods[] = "17:00 - 17:50";
+$periods[] = "18:00 - 18:50";
+$periods[] = "19:00 - 19:50";
+$periods[] = "20:00 - 20:50";
+$periods[] = "21:00 - 21:50";
+
+
 // NOTE:  The maximum number of periods is 60.   Do not define more than this.
 
 // NOTE:  See INSTALL for information on how to add or remove periods in an
