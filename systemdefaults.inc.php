@@ -92,7 +92,7 @@ $db_persist = false;
  * Site identification information
  *********************************/
 $mrbs_admin = "Your Administrator";
-$mrbs_admin_email = "admin@booking.ncu.edu.tw";
+$mrbs_admin_email = "admin@mail.ncuisq.tk";
 // NOTE:  there are more email addresses in $mail_settings below.    You can also give
 // email addresses in the format 'Full Name <address>', for example:
 // $mrbs_admin_email = 'Booking System <admin_email@your.org>';
@@ -976,14 +976,14 @@ $allow_cli = false;
 // --------------
 
 // Set the email address of the From field. Default is 'admin_email@your.org'
-$mail_settings['from'] = 'no-reply@booking.ncu.edu.tw';
+$mail_settings['from'] = 'no-reply@mail.ncuisq.tk';
 
 // The address to be used for the ORGANIZER in an iCalendar event.   Do not make
 // this email address the same as the admin email address or the recipients 
 // email address because on some mail systems, eg IBM Domino, the iCalendar email
 // notification is silently discarded if the organizer's email address is the same 
 // as the recipient's.  On other systems you may get a "Meeting not found" message.
-$mail_settings['organizer'] = 'admin@booking.ncu.edu.tw';
+$mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
 
 // Set the recipient email. Default is 'admin_email@your.org'. You can define
 // more than one recipient like this "john@doe.com,scott@tiger.com"
@@ -1108,15 +1108,15 @@ $mail_settings['qmail']['qmail-inject-path'] = '/usr/bin/qmail-inject';
  */
 
 // These settings are only used with the "smtp" backend
-$smtp_settings['host'] = 'booking.ncu.edu.tw';  // SMTP server
-$smtp_settings['port'] = 25;           // SMTP port number
+$smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
+$smtp_settings['port'] = 465;           // SMTP port number
 $smtp_settings['auth'] = true;        // Whether to use SMTP authentication
-$smtp_settings['secure'] = '';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
+$smtp_settings['secure'] = 'ssl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
                                        // server doesn't advertise it. Conversely if you specify '' and the server advertises TLS, TLS
                                        // will be used, unless the 'disable_opportunistic_tls' configuration parameter shown below is
                                        // set to true.
 $smtp_settings['username'] = 'no-reply';       // Username (if using authentication)
-$smtp_settings['password'] = 'ggininder';       // Password (if using authentication)
+$smtp_settings['password'] = 'ncu@ggininder';       // Password (if using authentication)
 $smtp_settings['disable_opportunistic_tls'] = false; // Set this to true to disable
                                                      // opportunistic TLS
                                                      // https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#opportunistic-tls
