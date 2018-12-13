@@ -86,5 +86,9 @@ $web_host = "https://booking.ncu.edu.tw";
 // Booking types configuration. Use for tags.
 //$booking_types[] = "E";
 $vocab_override["zh-tw"]["type.E"] = "一般課程";
+$vocab_override["en"]["type.E"] = "Regular Class";
 //$booking_types[] = "I";
 $vocab_override["zh-tw"]["type.I"] = "社團活動";
+$vocab_override["en"]["type.I"] = "Club Activity";
+$booking_types[] = "A";
+$vocab_override["zh-tw"]["type.A"] = "臨時課程";

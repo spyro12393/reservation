@@ -96,11 +96,11 @@ $series_entry_back_color   = "#FFFCDA"; // background colour for entries in a se
 $pending_control_color     = "#FFF36C"; // background colour for the series +/- controls in pending.php
     
 // ***** DIMENSIONS *******************
-$banner_border_width          = '0';  // (px)  border width for the outside of the banner
-$banner_border_cell_width     = '1';  // (px)  border width for the cells of the banner
+$banner_border_width          = '0';  // (px)  border width for the outside of the banner 0
+$banner_border_cell_width     = '1';  // (px)  border width for the cells of the banner 1
 $main_table_border_width      = '0';  // (px)  border width for the outside of the main day/week/month tables    
-$main_table_cell_border_width = '1';  // (px)  border width for the cells of the main day/week/month tables
-$main_cell_height             = '17'; // (px)  height of the cells in the main day/week tables
+$main_table_cell_border_width = '1';  // (px)  border width for the cells of the main day/week/month tables 1
+$main_cell_height             = '37'; // (px)  height of the cells in the main day/week tables 17
          
     
 // ***** FONTS ************************    
