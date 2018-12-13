@@ -79,7 +79,7 @@ $morningstarts         = 8;   // must be integer in range 0-23
 $morningstarts_minutes = 0;   // must be integer in range 0-59
 
 // The beginning of the last slot of the day (DEFAULT VALUES FOR NEW AREAS)
-$eveningends           = 20;  // must be integer in range 0-23
+$eveningends           = 21;  // must be integer in range 0-23
 $eveningends_minutes   = 0;   // must be integer in range 0-59
 
 // Example 1.
