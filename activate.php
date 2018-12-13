@@ -17,7 +17,7 @@
                 $time=strtotime($row['timesstamp']);
                 $now=time();
                 //$timestamp = date("Y-m-d H:i:s");
-        		if($now-$time>300){  //五分鐘內有效
+        		if($now-$time>1800){  //五分鐘內有效
                     $sql="DELETE FROM mrbs_users_valid WHERE email='$email'";
                     mysqli_query($db, $sql);
                     //strat--email function可以用後start到end標住起來的地方要刪掉
