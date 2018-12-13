@@ -1260,7 +1260,7 @@ $booking_types[] = "I";
 
 // Default type for new bookings
 // (Note that the default type does not apply if the type field is mandatory)
-$default_type = "I";
+$default_type = "B";
 
 // Default description for new bookings
 $default_description = "";

@@ -21,7 +21,7 @@ http_headers(array("Content-type: text/css"),
 /* ------------ GENERAL -----------------------------*/
 
 body {
-  font-size: small;
+  font-size: large;
   margin: 0;
   padding: 0;
   color:            <?php echo $standard_font_color ?>;
@@ -1606,3 +1606,5 @@ a.dt-button {
 div#check_tabs {background-image: none}
 .edit_entry #ui-tab-dialog-close {position:absolute; right:0; top:23px}
 .edit_entry #ui-tab-dialog-close a {float:none; padding:0}
+
+.dwm_main td+td {font-size: large}  /* choose your font size */
