@@ -109,20 +109,22 @@
             $mail->isHTML(true);                                  // Set email format to HTML
 
             $mail->Subject = 'NCU_MRBS_Verification';
-            $mail->Body    = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
-                             "<br/>".
-                             "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
-                             "<br/>".
-                             "若對本信件無任何印象，請安心忽略此郵件。";
+            $mail->Body    = "Thank you for creating an NCU Booking System account.".
+                              "<br/>".
+                              "Before you can use the system, you must activate your account with following link.".
+                              "<br/>".
+                              "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
+                              "<br/>".
+                              "Once you complete activation, you can log in and update your profile.".
+                              "<br/>".
+                              "If you have any issues or questions, Contact NCU Curriculum Division.";
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             if(!$mail->send()) {
-              array_push($errors, "Message could not be sent. Please contact administrator");
-              //echo 'Message could not be sent. Please contact administrator';
-              //echo 'Mailer Error: ' . $mail->ErrorInfo;
-              } else {
-             //echo 'Message has been sent';
-              $info.='<br/>'.'Message has been sent';
+                echo 'Message could not be sent. Please contact administrator';
+                //echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message has been sent';
             }
 
           }
@@ -186,20 +188,22 @@
 
             //$mail->charset='UTF-8';
             $mail->Subject = 'NCU_MRBS_Verification';
-            $mail->Body    = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
-                             "<br/>".
-                             "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
-                             "<br/>".
-                             "若對本信件無任何印象，請安心忽略此郵件。";
+            $mail->Body    = "Thank you for creating an NCU Booking System account.".
+                              "<br/>".
+                              "Before you can use the system, you must activate your account with following link.".
+                              "<br/>".
+                              "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
+                              "<br/>".
+                              "Once you complete activation, you can log in and update your profile.".
+                              "<br/>".
+                              "If you have any issues or questions, Contact NCU Curriculum Division.";
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             if(!$mail->send()) {
-              array_push($errors, "Message could not be sent. Please contact administrator");
-              //echo 'Message could not be sent.';
-              //echo 'Mailer Error: ' . $mail->ErrorInfo;
-              } else {
-              //echo 'Message has been sent';
-              $info.='<br/>'.'Message has been sent';
+                echo 'Message could not be sent. Please contact administrator';
+                //echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message has been sent';
             }
           
         }

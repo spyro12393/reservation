@@ -52,7 +52,7 @@
         )
       );
 
-                    $mail->setFrom('no-reply@booking.ncu.edu.tw', 'no-reply');
+                    $mail->setFrom($smtp_settings['from'], $smtp_settings['username']);
                     $mail->addAddress($email, 'Receiver');     // Add a recipient
                     //$mail->addAddress('ellen@example.com');               // Name is optional
                     //$mail->addReplyTo('info@example.com', 'Information');
@@ -64,11 +64,15 @@
                     $mail->isHTML(true);                                  // Set email format to HTML
 
                     $mail->Subject = 'NCU_MRBS_Verification';
-                    $mail->Body    = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
+                    $mail->Body    = "Thank you for creating an NCU Booking System account.".
+                                      "<br/>".
+                                      "Before you can use the system, you must activate your account with following link.".
                                       "<br/>".
                                       "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
                                       "<br/>".
-                                      "若對本信件無任何印象，請安心忽略此郵件。";
+                                      "Once you complete activation, you can log in and update your profile.".
+                                      "<br/>".
+                                      "If you have any issues or questions, Contact NCU Curriculum Division.";
                     //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                     if(!$mail->send()) {
