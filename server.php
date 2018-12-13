@@ -72,6 +72,34 @@
             $info='*已成功註冊，請到信箱收取驗證信來啟用帳號<br/>5秒後重新導向至首頁';
             header("Refresh: 5;URL='$web_host'");
             //更改收件者郵件與內容
+            // Create the text body
+  $text_body = array();
+  $text_body['content'] = create_body($data, NULL, FALSE, $series, $action, FALSE, $note, $start_times);
+  
+  // Create the HTML body
+  $html_body = array();
+  if ($mail_settings['html'])
+  {
+    $html_body['content'] = create_body($data, NULL, FALSE, $series, $action, TRUE, $note, $start_times);
+    $html_body['cid'] = generate_global_uid("html");
+  }
+  
+  // Set up the attachment
+  $attachment = array();
+  if ($mail_settings['icalendar'] && !$enable_periods)
+  {
+    $attachment['method']   = "CANCEL";
+    $ical_components = array();
+    $ical_components[] = create_ical_event($attachment['method'], $data, $addresses, $series);
+    $attachment['content']  = create_icalendar($attachment['method'], $ical_components);
+    $attachment['name']     = $mail_settings['ics_filename'] . ".ics";
+  }
+  $addresses = array();
+  $addresses['from'] = 'no-reply@mail.ncuisq.tk';
+  $addresses['to']   = $email;
+  //$addresses['cc'] = get_address_list($cc);
+            sendMail($addresses,'subject',$text_body,$html_body,$attachment,$charset='us-ascii');
+/*
             $mail = new PHPMailer;
 
             //$mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -128,7 +156,7 @@
              //echo 'Message has been sent';
               $info.='<br/>'.'Message has been sent';
             }
-
+*/
           }
           elseif($row['accountstatus']==1){
             $info='*帳號已被註冊';
