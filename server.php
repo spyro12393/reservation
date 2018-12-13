@@ -1,6 +1,7 @@
  <?php
     require_once "defaultincludes.inc";
     require_once "lib/PHPMailer/PHPMailerAutoload.php";
+    require_once "functions_mail.inc";
 
     $errors=array();
     //
@@ -75,15 +76,28 @@
 
             //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'booking.ncu.edu.tw';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'no-reply';                 // SMTP username
-            $mail->Password = 'ncu@ggininder';                           // SMTP password
-            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 465;                                    // TCP port to connect to
+            $mail->isSMTP();
+      $mail->Host = $smtp_settings['host'];
+      $mail->Port = $smtp_settings['port'];
+      $mail->SMTPAuth = $smtp_settings['auth'];
+      $mail->SMTPSecure = $smtp_settings['secure'];
+      $mail->Username = $smtp_settings['username'];
+      $mail->Password = $smtp_settings['password'];
+      if ($smtp_settings['disable_opportunistic_tls'])
+      {
+        $mail->SMTPAutoTLS = false;
+      }
+      $mail->SMTPOptions = array
+      (
+        'ssl' => array
+        (
+          'verify_peer' => $smtp_settings['ssl_verify_peer'],
+          'verify_peer_name' => $smtp_settings['ssl_verify_peer_name'],
+          'allow_self_signed' => $smtp_settings['ssl_allow_self_signed']
+        )
+      );
 
-            $mail->setFrom('no-reply@booking.ncu.edu.tw', 'no-reply');
+            $mail->setFrom('no-reply@mail.ncuisq.tk', 'no-reply');
             $mail->addAddress($email, 'Receiver');     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
@@ -138,15 +152,28 @@
 
             //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'booking.ncu.edu.tw';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'no-reply';                 // SMTP username
-            $mail->Password = 'ncu@ggininder';                           // SMTP password
-            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 465;                                    // TCP port to connect to
+            $mail->isSMTP();
+      $mail->Host = $smtp_settings['host'];
+      $mail->Port = $smtp_settings['port'];
+      $mail->SMTPAuth = $smtp_settings['auth'];
+      $mail->SMTPSecure = $smtp_settings['secure'];
+      $mail->Username = $smtp_settings['username'];
+      $mail->Password = $smtp_settings['password'];
+      if ($smtp_settings['disable_opportunistic_tls'])
+      {
+        $mail->SMTPAutoTLS = false;
+      }
+      $mail->SMTPOptions = array
+      (
+        'ssl' => array
+        (
+          'verify_peer' => $smtp_settings['ssl_verify_peer'],
+          'verify_peer_name' => $smtp_settings['ssl_verify_peer_name'],
+          'allow_self_signed' => $smtp_settings['ssl_allow_self_signed']
+        )
+      );
 
-            $mail->setFrom('no-reply@booking.ncu.edu.tw', 'no-reply');
+            $mail->setFrom('no-reply@mail.ncuisq.tk', 'no-reply');
             $mail->addAddress($email, 'Receiver');     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
@@ -157,7 +184,7 @@
             //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
             $mail->isHTML(true);                                  // Set email format to HTML
 
-            $mail->charset='UTF-8';
+            //$mail->charset='UTF-8';
             $mail->Subject = 'NCU_MRBS_Verification';
             $mail->Body    = "您的帳號已註冊成功，請點擊以下連結來啟用帳號。".
                              "<br/>".
