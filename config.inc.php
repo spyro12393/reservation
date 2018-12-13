@@ -81,3 +81,10 @@ $auth['show_bulk_delete'] = true;
 
 //for web--Jason. 1115 modified by JJ
 $web_host = "https://booking.ncu.edu.tw";
+
+
+// Booking types configuration. Use for tags.
+//$booking_types[] = "E";
+$vocab_override["zh-tw"]["type.E"] = "一般課程";
+//$booking_types[] = "I";
+$vocab_override["zh-tw"]["type.I"] = "社團活動";
