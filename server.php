@@ -121,10 +121,12 @@
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             if(!$mail->send()) {
-                echo 'Message could not be sent. Please contact administrator';
-                //echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-                echo 'Message has been sent';
+              array_push($errors, "Message could not be sent. Please contact administrator");
+              //echo 'Message could not be sent. Please contact administrator';
+              //echo 'Mailer Error: ' . $mail->ErrorInfo;
+              } else {
+             //echo 'Message has been sent';
+              $info.='<br/>'.'Message has been sent';
             }
 
           }
@@ -200,10 +202,12 @@
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             if(!$mail->send()) {
-                echo 'Message could not be sent. Please contact administrator';
-                //echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-                echo 'Message has been sent';
+              array_push($errors, "Message could not be sent. Please contact administrator");
+              //echo 'Message could not be sent. Please contact administrator';
+              //echo 'Mailer Error: ' . $mail->ErrorInfo;
+              } else {
+             //echo 'Message has been sent';
+              $info.='<br/>'.'Message has been sent';
             }
           
         }
