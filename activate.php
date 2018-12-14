@@ -1,6 +1,7 @@
 <?php
 	require_once "defaultincludes.inc";
 	require_once "lib/PHPMailer/PHPMailerAutoload.php";
+  require_once "functions_mail.inc";
 
 	if(isset($_GET['para'])){
 		$email=base64_decode($_GET['para']);
@@ -52,7 +53,7 @@
         )
       );
 
-                    $mail->setFrom($smtp_settings['from'], $smtp_settings['username']);
+                    $mail->setFrom('no-reply@mail.ncuisq.tk', 'no-reply');
                     $mail->addAddress($email, 'Receiver');     // Add a recipient
                     //$mail->addAddress('ellen@example.com');               // Name is optional
                     //$mail->addReplyTo('info@example.com', 'Information');
@@ -82,7 +83,7 @@
                         echo 'Message has been sent';
                     }
         		}
-        		elseif($now-$time<=300){
+        		elseif($now-$time<=1800){
         			$sql="update mrbs_users set accountstatus = '1' where email = '$email'";
         			mysqli_query($db, $sql);
                     $sql="DELETE FROM mrbs_users_valid WHERE email='$email'";
