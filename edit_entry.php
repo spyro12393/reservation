@@ -1048,10 +1048,23 @@ $enable_periods ? toPeriodString($start_min, $duration, $dur_units) : toTimeStri
 
 //now that we know all the data to fill the form with we start drawing it
 
-if (!getWritable($create_by, $user, $room_id))
+// if (!getWritable($create_by, $user, $room_id))
+// {
+//   showAccessDenied($day, $month, $year, $area, isset($room) ? $room : null);
+//   exit;
+// }
+if(strcasecmp($creator, $user) == 1)
 {
   showAccessDenied($day, $month, $year, $area, isset($room) ? $room : null);
   exit;
+}
+else if(auth_book_dept_admin($user,$area) == 0)
+{
+  if(strcasecmp($creator, $user) == 1)
+  {
+    showAccessDenied($day, $month, $year, $area, isset($room) ? $room : null);
+    exit;
+  }
 }
 
 print_header($day, $month, $year, $area, isset($room) ? $room : null);
