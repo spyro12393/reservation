@@ -176,41 +176,6 @@ function generateTextArea($form_action, $id, $series, $action_type, $returl, $su
   echo "<tr>\n";
 }
 
-function auth_book_dept_admin($user,$area)    // add by Mansion
-{
-  if (authGetUserLevel($user) >= 3)
-  {
-    return TRUE;
-  }
-
-  // dept managers can only see their own buildings
-  if (authGetUserLevel($user) == 2)
-  {
-    $sql = "SELECT aid FROM mrbs_deptmanager AS D WHERE D.uname = '$user'";
-    //TODO: change mrbs_deptmanager to $tbl_deptmanager
-    $res_area = db()->query($sql);
-    // output data of each row
-    if ($res_area->count() > 0) 
-    {
-      for ($i = 0; ($row = $res_area->row_keyed($i)); $i++)
-      { 
-        if ($row['aid'] == $area)
-        {
-          return TRUE;
-        }
-      }
-    }
-
-    return FALSE;
-
-  }
-  else
-  {
-    return FALSE;
-  }
-}
-
-
 
 // Get non-standard form variables
 //
