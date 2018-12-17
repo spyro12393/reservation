@@ -113,7 +113,7 @@
                               "<br/>".
                               "Before you can use the system, you must activate your account with following link.".
                               "<br/>".
-                              "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
+                              "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>Click Link To Activate Account</a>".
                               "<br/>".
                               "Once you complete activation, you can log in and update your profile.".
                               "<br/>".
@@ -194,7 +194,7 @@
                               "<br/>".
                               "Before you can use the system, you must activate your account with following link.".
                               "<br/>".
-                              "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>按此啟用帳號</a>".
+                              "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>Click Link To Activate Account</a>".
                               "<br/>".
                               "Once you complete activation, you can log in and update your profile.".
                               "<br/>".
