@@ -170,6 +170,24 @@ function getWritable($creator, $user, $room)
   return 0;
 }
 
+function getWritable_dept($creator, $user, $area)
+{
+  // Always allowed to modify your own stuff
+  if(strcasecmp($creator, $user) == 0)
+  {
+    return 1;
+  }
+  
+  // Otherwise you have to be a (booking) admin for this room
+  if (auth_book_dept_admin($user, $area))
+  {
+    return 1;
+  }
+  
+  // Unathorised access
+  return 0;
+}
+
 /* showAccessDenied()
  * 
  * Displays an appropriate message when access has been denied
