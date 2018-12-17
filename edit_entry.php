@@ -612,40 +612,6 @@ function create_field_entry_custom_field($field, $key, $disabled=FALSE)
   echo "</div>\n";
 }
 
-function auth_book_dept_admin($user,$area)    // add by Mansion
-{
-  if (authGetUserLevel($user) >= 3)
-  {
-    return TRUE;
-  }
-
-  // dept managers can only see their own buildings
-  if (authGetUserLevel($user) == 2)
-  {
-    $sql = "SELECT aid FROM mrbs_deptmanager AS D WHERE D.uname = '$user'";
-    //TODO: change mrbs_deptmanager to $tbl_deptmanager
-    $res_area = db()->query($sql);
-    // output data of each row
-    if ($res_area->count() > 0) 
-    {
-      for ($i = 0; ($row = $res_area->row_keyed($i)); $i++)
-      { 
-        if ($row['aid'] == $area)
-        {
-          return TRUE;
-        }
-      }
-    }
-
-    return FALSE;
-
-  }
-  else
-  {
-    return FALSE;
-  }
-}
-
 
 // Get non-standard form variables
 $hour = get_form_var('hour', 'int');
@@ -671,25 +637,6 @@ Form::checkToken($post_only=true);
 
 // Check the user is authorised for this page
 checkAuthorised();
-
-// added by Mansoin ...
-if (!auth_book_dept_admin($user,$area))
-  {
-    // If we dont know the right date then use today's
-    if (!isset($day) or !isset($month) or !isset($year))
-    {
-      $day   = date("d");
-      $month = date("m");
-      $year  = date("Y");
-    }
-    if (empty($area))
-    {
-      $area = get_default_area();
-    }
-    showAccessDenied($day, $month, $year, $area, isset($room) ? $room : null);
-    exit();
-  }
-// added by Mansoin ...
 
 // Also need to know whether they have admin rights
 $user = getUserName();
