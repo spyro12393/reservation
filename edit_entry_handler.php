@@ -703,7 +703,8 @@ foreach ($rooms as $room_id)
   // bookings for this room, then the status will be approved, since they are
   // in effect immediately approving their own booking.  Otherwise the booking
   // will need to approved.
-  if ($approval_enabled && !auth_book_admin($user, $room_id))
+//  if ($approval_enabled && !auth_book_admin($user, $room_id)) // commented by Mansion
+if ($approval_enabled && !auth_book_dept_admin($user, $room_id)) // modified by Mansion
   {
     $status |= STATUS_AWAITING_APPROVAL;
   }
