@@ -49,11 +49,13 @@ if ($info = get_booking_info($id, FALSE, TRUE))
   // check that the user is allowed to delete this entry
   if (isset($action) && ($action == "reject"))
   {
-    $authorised = auth_book_admin($user, $info['room_id']);
+    //$authorised = auth_book_admin($user, $info['room_id']); // commented by Mansion
+    $authorised = auth_book_admin($user, $area); // added by Mansion
   }
   else
   {
-    $authorised = getWritable($info['create_by'], $user, $info['room_id']);
+    //$authorised = getWritable($info['create_by'], $user, $info['room_id']); // commented by Mansion
+    $authorised = getWritable_dept($info['create_by'], $user, $area); // added by Mansion
   }
   if ($authorised)
   {
