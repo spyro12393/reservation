@@ -57,7 +57,7 @@ $db_database = "mrbs";
 // Database login user name:
 $db_login = "mrbs";
 // Database login password:
-$db_password = 'ncu4228474';
+$db_password = '!Ggininder';
 // Prefix for table names.  This will allow multiple installations where only
 // one database is available
 $db_tbl_prefix = "mrbs_";
