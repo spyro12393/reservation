@@ -71,8 +71,8 @@ class DB
                     "used with PDO (though it is possible that mysqli may have accepted it).  Try " .
                     "deleting the MySQL user and recreating it with the same password.";
       }
-      
-      throw new DBException($message, 0, $e);
+      # Commented by Mansion; It will show account/password on the web.
+      # throw new DBException($message, 0, $e);
     }
   }
 
