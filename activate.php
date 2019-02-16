@@ -1,7 +1,7 @@
 <?php
 	require_once "defaultincludes.inc";
 	require_once "lib/PHPMailer/PHPMailerAutoload.php";
-  require_once "functions_mail.inc";
+    require_once "functions_mail.inc";
 
 	if(isset($_GET['para'])){
 		$email=base64_decode($_GET['para']);
@@ -27,63 +27,51 @@
                     mysqli_query($db, $sql);
                     //end--刪到這
                     echo "連結已失效，請重新整理或到信箱收取驗證信重新啟用帳號";//連結失效的情況下
-        			//更改收件者郵件與內容
                     $mail = new PHPMailer;
-
-                     //$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
                     $mail->isSMTP();
-      $mail->Host = $smtp_settings['host'];
-      $mail->Port = $smtp_settings['port'];
-      $mail->SMTPAuth = $smtp_settings['auth'];
-      $mail->SMTPSecure = $smtp_settings['secure'];
-      $mail->Username = $smtp_settings['username'];
-      $mail->Password = $smtp_settings['password'];
-      if ($smtp_settings['disable_opportunistic_tls'])
-      {
-        $mail->SMTPAutoTLS = false;
-      }
-      $mail->SMTPOptions = array
-      (
-        'ssl' => array
-        (
-          'verify_peer' => $smtp_settings['ssl_verify_peer'],
-          'verify_peer_name' => $smtp_settings['ssl_verify_peer_name'],
-          'allow_self_signed' => $smtp_settings['ssl_allow_self_signed']
-        )
-      );
+                    $mail->Host = $smtp_settings['host'];
+                    $mail->Port = $smtp_settings['port'];
+                    $mail->SMTPAuth = $smtp_settings['auth'];
+                    $mail->SMTPSecure = $smtp_settings['secure'];
+                    $mail->Username = $smtp_settings['username'];
+                    $mail->Password = $smtp_settings['password'];
+                    if ($smtp_settings['disable_opportunistic_tls']) {
+                    $mail->SMTPAutoTLS = false;
+                    }
+
+                    $mail->SMTPOptions = array
+                    (
+                    'ssl' => array
+                    (
+                        'verify_peer' => $smtp_settings['ssl_verify_peer'],
+                        'verify_peer_name' => $smtp_settings['ssl_verify_peer_name'],
+                        'allow_self_signed' => $smtp_settings['ssl_allow_self_signed']
+                    )
+                    );
 
                     $mail->setFrom('no-reply@mail.ncuisq.tk', 'no-reply');
                     $mail->addAddress($email, 'Receiver');     // Add a recipient
-                    //$mail->addAddress('ellen@example.com');               // Name is optional
-                    //$mail->addReplyTo('info@example.com', 'Information');
-                    //$mail->addCC('cc@example.com');
-                    //$mail->addBCC('bcc@example.com');
+                    $mail->isHTML(true);                       // Set email format to HTML
 
-                    //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-                    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-                    $mail->isHTML(true);                                  // Set email format to HTML
-
+                    //$mail->charset='UTF-8';
                     $mail->Subject = 'NCU_MRBS_Verification';
                     $mail->Body    = "Thank you for creating an NCU Booking System account.".
-                                      "<br/>".
-                                      "Before you can use the system, you must activate your account with following link.".
-                                      "<br/>".
-                                      "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>Click Link To Activate Account</a>".
-                                      "<br/>".
-                                      "Once you complete activation, you can log in and update your profile.".
-                                      "<br/>".
-                                      "If you have any issues or questions, Contact NCU Curriculum Division.";
-                    //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+                                    "<br/>".
+                                    "Before you can use the system, you must activate your account with following link.".
+                                    "<br/>".
+                                    "<a href=http://booking.ncu.edu.tw/activate.php?para=$email_hash"." target=_blank>Click Link To Activate Account</a>".
+                                    "<br/>".
+                                    "Once you complete activation, you can log in and update your profile.".
+                                    "<br/>".
+                                    "If you have any issues or questions, Contact NCU Curriculum Division.";
                     if(!$mail->send()) {
-                        echo 'Message could not be sent. Please contact administrator';
-                        //echo 'Mailer Error: ' . $mail->ErrorInfo;
-                    } else {
-                        echo 'Message has been sent';
+                    array_push($errors, "Message could not be sent. Please contact administrator");
+                    } 
+                    else {
+                    $info.='<br/>'.'Message has been sent';
                     }
-        		}
-        		elseif($now-$time<=1800){
+        	    }
+        	    elseif($now-$time<=1800){
         			$sql="update mrbs_users set accountstatus = '1' where email = '$email'";
         			mysqli_query($db, $sql);
                     $sql="DELETE FROM mrbs_users_valid WHERE email='$email'";
