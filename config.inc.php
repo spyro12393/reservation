@@ -191,6 +191,12 @@ $auth['show_bulk_delete'] = true;
  ******************/
 $area_list_format = "select";
 
+$monthly_view_entries_details = "both";
+
+$view_week_number = TRUE;
+
+$default_view = "week";
+
 
 /*******************
  * for web--Jason. 1115 modified by JJ
