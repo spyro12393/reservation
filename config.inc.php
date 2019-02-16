@@ -152,7 +152,7 @@ $mail_settings['admin_backend'] = 'smtp';
  */
 
 // These settings are only used with the "smtp" backend
-$smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
+$smtp_settings['host'] = 'nas.ncuisq.tk';  // SMTP server
 $smtp_settings['port'] = 465;           // SMTP port number
 $smtp_settings['auth'] = true;        // Whether to use SMTP authentication
 $smtp_settings['secure'] = 'ssl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP

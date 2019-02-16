@@ -870,7 +870,7 @@ if (!$ajax)
 if ($initial_user_creation != 1)   // don't print the user table if there are no users
 {
   // Get the user information
-  $res = db()->query("SELECT * FROM $tbl_users ORDER BY level DESC, name");
+  $res = db()->query("SELECT * FROM $tbl_users WHERE level <= '$level' ORDER BY level DESC");
   
   // Display the data in a table
   $ignore_columns = array('id', 'password_hash', 'name'); // We don't display these columns or they get special treatment

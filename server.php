@@ -205,7 +205,8 @@
        }
 
       if(count($errors)==0) {
-        $password_1=md5(randtext(8)); // random a new password
+        $rand_pwd = randtext(8);
+        $password_1=md5($rand_pwd); // random a new password
         $email_hash=base64_encode($email);
 
         //若已有資料則判斷status，否則新增一筆
@@ -215,10 +216,13 @@
         if(mysqli_num_rows($result)>0){
           $row=mysqli_fetch_assoc($result);
 
-          $sql="UPDATE mrbs_users set password_hasd = '$password_1' where email='$email'";
-          mysqli_query($db, $sql);
+          $sql="UPDATE mrbs_users set password_hash = '$password_1' where email='$email'";
+          if (mysqli_query($db, $sql)) {
+            $info='New Password:['. $rand_pwd . ']';
+          } else {
+            echo "Error updating record: " . mysqli_error($conn);
+          }
 
-          $info='*已發送新密碼，請到信箱收取密碼<br/>5秒後重新導向至首頁';
           header("Refresh: 5;URL='$web_host'");
           
           $mail = new PHPMailer;
@@ -249,13 +253,13 @@
 
           //$mail->charset='UTF-8';
           $mail->Subject = 'NCU_MRBS_Reset_Password';
-          $mail->Body    = "Your new password is [". $password_1 ."]".
-                            "<br/>".;
+          $mail->Body    = "Your new password is [". $rand_pwd ."]";
+
           if(!$mail->send()) {
             array_push($errors, "Message could not be sent. Please contact administrator");
           } 
           else {
-            $info.='<br/>'.'Message has been sent';
+            $info.='<br/>'.'New password has been sent to your email';
           }
           
         }
