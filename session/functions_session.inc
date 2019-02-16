@@ -7,6 +7,7 @@ use MRBS\Form\ElementInputSubmit;
 use MRBS\Form\FieldInputPassword;
 use MRBS\Form\FieldInputSubmit;
 use MRBS\Form\FieldInputText;
+use MRBS\Form\ElementButton;
 
 function print_login_failed()
 {
@@ -72,12 +73,26 @@ function print_login_form($action, $target_url, $returl)
   $field = new FieldInputSubmit();
   $field->setControlAttributes(array('value' => get_vocab('login')));
   $fieldset->addElement($field);
-  
+
   $form->addElement($fieldset);
   
   $form->render();
+
+  // The resetpwd button
+  $form = new Form();
+  $form->setAttributes(array('method' => 'get',
+                             'action' => 'resetpwd.php'));
   
   
+  // The submit button
+  $element = new ElementInputSubmit();
+  $element->setAttribute('value', get_vocab('users.resetpwd'));
+  $form->addElement($element);
+  
+  $form->render();
+
+
+
   // The code below doesn't really belong here and ideally ought to be moved
   // to somewhere where you can see the opening <div> etc.
 

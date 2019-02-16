@@ -9,7 +9,7 @@ print_header();
 <!DOCTYPE html>
 <html>
   <head>
-    <title>註冊</title>
+    <title>忘記密碼</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/awesomplete.css" />
@@ -22,14 +22,10 @@ print_header();
   </head>
   <body>
     <div class="header">
-      <h2>註冊</h2>
+      <h2>忘記密碼</h2>
     </div>
-    <form method="post" action="register.php" class="forform">
+    <form method="post" action="resetpwd.php" class="forform">
       <?php include('error.php'); ?>
-      <div class="input-group">
-        <label>姓名</label>
-        <input type="text" name="username" maxlength="10" value="<?php echo $username; ?>">
-      </div>
       <div class="input-group">
         <label>學校信箱</label>
         <input type="text" name="email" ID="email" placeholder="請輸入信箱" maxlength="50" value="<?php echo $email; ?>">
@@ -47,16 +43,9 @@ print_header();
         <label>電話</label>
         <input type="text" name="phone" placeholder="請輸入手機號碼" maxlength="10" value="<?php echo $phone; ?>">
       </div>
+
       <div class="input-group">
-        <label>密碼</label>
-        <input type="password" name="password_1" maxlength="20">
-      </div>
-      <div class="input-group">
-        <label>確認密碼</label>
-        <input type="password" name="password_2" maxlength="20">
-      </div>
-      <div class="input-group">
-        <button type="submit" name=register class="btn">註冊</button>
+        <button type="submit" name=resetpwd class="btn">送出</button>
       </div>
       <?php include('info.php'); ?>
     </form>

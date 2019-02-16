@@ -178,6 +178,21 @@
         }
  		  }
     }
+    else {
+ 	    $email=mysqli_real_escape_string($db,$_POST['email']);
+ 	    $phone=mysqli_real_escape_string($db,$_POST['phone']);
+      if(empty($email)) {
+        array_push($errors, "請輸入學校信箱");
+ 	    }
+ 	    else {
+        if(!preg_match('/^\w+((-\w+)|(\.\w+))*\@cc\.ncu\.edu.tw$/', $email)) {
+          array_push($errors, "信箱格式應為學號+@cc.ncu.edu.tw");
+ 	  	  }
+ 	    }
+      if(empty($phone)) {
+        array_push($errors, "請輸入手機號碼");
+ 	    }
+    }
     mysqli_close($db);
  ?>
 
