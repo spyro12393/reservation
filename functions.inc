@@ -2443,7 +2443,7 @@ function make_room_select_html ($link, $area, $current, $year, $month, $day)
              AND R.area_id=A.id
              AND R.disabled=0
              AND A.disabled=0
-        ORDER BY R.sort_key";
+        ORDER BY R.room_name"; // modified by Mansion
   $res = db()->query($sql, array($area));
   // Only show the rooms if there's more than one of them, otherwise
   // there's no point
