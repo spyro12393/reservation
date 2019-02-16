@@ -1605,7 +1605,7 @@ function get_room_names($area_id, $all=FALSE)
   {
     $sql .= " AND disabled=0";
   }
-  $sql .= " ORDER BY sort_key";
+  $sql .= " ORDER BY room_name"; // modified by Mansion
   
   $res = db()->query($sql, array(':area_id' => $area_id));
   
@@ -1657,7 +1657,7 @@ function get_rooms($area, $all=FALSE)
     $sql .= " AND R.disabled = 0" .
             " AND A.disabled = 0";
   }
-  $sql .= " ORDER BY R.sort_key";
+  $sql .= " ORDER BY room_name"; // modified by Mansion
 
   $res = db()->query($sql, array($area));
   

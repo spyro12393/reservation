@@ -92,7 +92,7 @@ $db_persist = false;
  * Site identification information
  *********************************/
 $mrbs_admin = "Your Administrator";
-$mrbs_admin_email = "admin_email@your.org";
+$mrbs_admin_email = "admin@mail.ncuisq.tk";
 // NOTE:  there are more email addresses in $mail_settings below.    You can also give
 // email addresses in the format 'Full Name <address>', for example:
 // $mrbs_admin_email = 'Booking System <admin_email@your.org>';
@@ -112,7 +112,7 @@ $mrbs_company_logo = "images/logo.gif";    // name of your logo file.   This exa
 //$mrbs_company_more_info = "You can put additional information here";  // e.g. "XYZ Department"
 
 // Uncomment this next line to have a link to your organisation in the header
-$mrbs_company_url = "https://booking.ncu.edu.tw";
+$mrbs_company_url = "http://pdc.adm.ncu.edu.tw/course_index.asp?roadno=107";
 
 // This is to fix URL problems when using a proxy in the environment.
 // If links inside MRBS appear broken, then specify here the URL of
@@ -315,7 +315,7 @@ $search["count"] = 20;
 // Page refresh time (in seconds). Set to 0 to disable
 // (Note that if MRBS detects that a client is on a metered network
 // connection it will disable page refresh for that client.)
-$refresh_rate = 0;
+$refresh_rate = 30;
 
 // Refresh rate (in seconds) for Ajax checking of valid bookings on the edit_entry page
 // Set to 0 to disable
@@ -327,8 +327,8 @@ $ajax_refresh_rate = 10;
 $simple_trailer = false;
 
 // should areas be shown as a list or a drop-down select box?
-$area_list_format = "list";
-//$area_list_format = "select";
+//$area_list_format = "list";
+$area_list_format = "select";
 
 // Entries in monthly view can be shown as start/end slot, brief description or
 // both. Set to "description" for brief description, "slot" for time slot and
@@ -367,7 +367,7 @@ $display_calendar_bottom = false;
 
 // Define default starting view (month, week or day)
 // Default is day
-$default_view = "day";
+$default_view = "week";
 
 // Define default room to start with (used by index.php)
 // Room numbers can be determined by looking at the Edit or Delete URL for a
@@ -987,11 +987,11 @@ $mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
 
 // Set the recipient email. Default is 'admin_email@your.org'. You can define
 // more than one recipient like this "john@doe.com,scott@tiger.com"
-$mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw, a0983069681@gmail.com';
+$mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw';
 
 // Set email address of the Carbon Copy field. Default is ''. You can define
 // more than one recipient (see 'recipients')
-$mail_settings['cc'] = 'spyro12393@gmail.com';
+$mail_settings['cc'] = '';
 
 // Set to true if you want the cc addresses to be appended to the to line.
 // (Some email servers are configured not to send emails if the cc or bcc
@@ -1059,7 +1059,7 @@ $mail_settings['icalendar'] = false; // Set to true to include iCalendar details
 // -----------------------------------------
 
 // Set the language used for emails (choose an available lang.* file).
-$mail_settings['admin_lang'] = 'zh-tw';   // Default is 'en'.
+$mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 
 
 // HOW TO EMAIL - ADDRESSES
@@ -1072,7 +1072,7 @@ $mail_settings['admin_lang'] = 'zh-tw';   // Default is 'en'.
 // if you are using any other authentication scheme then the following settings allow
 // you to specify a domain name that will be appended to the username to produce a
 // valid email address (eg "@domain.com").
-$mail_settings['domain'] = '@mail.ncuisq.tk';
+$mail_settings['domain'] = '@cc.ncu.edu.tw';
 // If you use $mail_settings['domain'] above and username returned by mrbs contains extra
 // strings appended like domain name ('username.domain'), you need to provide
 // this extra string here so that it will be removed from the username.
@@ -1109,7 +1109,7 @@ $mail_settings['qmail']['qmail-inject-path'] = '/usr/bin/qmail-inject';
 
 // These settings are only used with the "smtp" backend
 $smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
-$smtp_settings['port'] = 587;           // SMTP port number
+$smtp_settings['port'] = 465;           // SMTP port number
 $smtp_settings['auth'] = true;        // Whether to use SMTP authentication
 $smtp_settings['secure'] = 'ssl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
                                        // server doesn't advertise it. Conversely if you specify '' and the server advertises TLS, TLS
@@ -1117,7 +1117,7 @@ $smtp_settings['secure'] = 'ssl';         // Encryption method: '', 'tls' or 'ss
                                        // set to true.
 $smtp_settings['username'] = 'no-reply';       // Username (if using authentication)
 $smtp_settings['password'] = 'ncu@ggininder';       // Password (if using authentication)
-$smtp_settings['disable_opportunistic_tls'] = true; // Set this to true to disable
+$smtp_settings['disable_opportunistic_tls'] = false; // Set this to true to disable
                                                      // opportunistic TLS
                                                      // https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#opportunistic-tls
 // If you're having problems with sending email to a TLS-enabled SMTP server *which you trust* you can change the following
@@ -1174,7 +1174,7 @@ $override_locale = "";
 // IF your language faq file is available, set $faqfilelang to match the
 // end of the file name, including the underscore (ie. for site_faq_fr.html
 // use "_fr"
-$faqfilelang = ""; 
+$faqfilelang = "_tw"; 
 
 // Language selection when run from the command line
 $cli_language = "en";
@@ -1260,7 +1260,7 @@ $booking_types[] = "I";
 
 // Default type for new bookings
 // (Note that the default type does not apply if the type field is mandatory)
-$default_type = "I";
+$default_type = "B";
 
 // Default description for new bookings
 $default_description = "";

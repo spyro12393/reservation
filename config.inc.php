@@ -18,20 +18,6 @@ namespace MRBS;
  * Timezone
  **********/
  
-// The timezone your meeting rooms run in. It is especially important
-// to set this if you're using PHP 5 on Linux. In this configuration
-// if you don't, meetings in a different DST than you are currently
-// in are offset by the DST offset incorrectly.
-//
-// Note that timezones can be set on a per-area basis, so strictly speaking this
-// setting should be in areadefaults.inc.php, but as it is so important to set
-// the right timezone it is included here.
-//
-// When upgrading an existing installation, this should be set to the
-// timezone the web server runs in.  See the INSTALL document for more information.
-//
-// A list of valid timezones can be found at http://php.net/manual/timezones.php
-// The following line must be uncommented by removing the '//' at the beginning
 $timezone = "Asia/Taipei";
 
 
@@ -44,7 +30,7 @@ $dbsys = "mysql";
 // to use Unix Domain Sockets instead of TCP/IP. For mysql "localhost"
 // tells the system to use Unix Domain Sockets, and $db_port will be ignored;
 // if you want to force TCP connection you can use "127.0.0.1".
-$db_host = "booking.ncu.edu.tw";
+$db_host = "nas.ncuisq.tk";
 // If you need to use a non standard port for the database connection you
 // can uncomment the following line and specify the port number
 $db_port = 3307;
@@ -61,30 +47,165 @@ $db_password = '!Ggininder';
 // Prefix for table names.  This will allow multiple installations where only
 // one database is available
 $db_tbl_prefix = "mrbs_";
-// Set $db_persist to TRUE to use PHP persistent (pooled) database connections.  Note
-// that persistent connections are not recommended unless your system suffers significant
-// performance problems without them.   They can cause problems with transactions and
-// locks (see http://php.net/manual/en/features.persistent-connections.php) and although
-// MRBS tries to avoid those problems, it is generally better not to use persistent
-// connections if you can.
-$db_persist = FALSE;
 
+$db_persist = FALSE;
 
 /* Add lines from systemdefaults.inc.php and areadefaults.inc.php below here
    to change the default configuration. Do _NOT_ modify systemdefaults.inc.php
    or areadefaults.inc.php.  */
 
+/**********
+ * Language
+ **********/
+
+$disable_automatic_language_changing = 1;
+$default_language_tokens = "zh-tw";
+$override_locale = "";
+$faqfilelang = "_tw"; 
+
+
+
+/*********************************
+ * Site identification information
+ *********************************/
+$mrbs_admin = "akikolin";
+
+$mrbs_admin_email = "akikolin@cc.ncu.edu.tw";
+
+$mrbs_company = "中央大學-課務組";   // This line must always be uncommented ($mrbs_company is used in various places)
+
+$mrbs_company_logo = "images/logo.gif";    // name of your logo file.   This example assumes it is in the MRBS directory
+
+$mrbs_company_url = "http://pdc.adm.ncu.edu.tw/course_index.asp?roadno=107";
+
+$url_base = "";
+
+
+
+/**********************************************
+ * Email settings
+ **********************************************/
+
+// BASIC SETTINGS
+// --------------
+
+// Set the email address of the From field. Default is 'admin_email@your.org'
+$mail_settings['from'] = 'no-reply@mail.ncuisq.tk';
+
+$mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
+
+$mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw';
+
+$mail_settings['cc'] = '';
+
+$mail_settings['treat_cc_as_to'] = false;
+
+
+// WHO TO EMAIL
+// ------------
+$mail_settings['admin_on_bookings']      = true;  // the addresses defined by $mail_settings['recipients'] below
+$mail_settings['area_admin_on_bookings'] = true;  // the area administrator
+$mail_settings['room_admin_on_bookings'] = true;  // the room administrator
+$mail_settings['booker']                 = true;  // the person making the booking
+$mail_settings['book_admin_on_approval'] = false;  // the booking administrator when booking approval is enabled
+                                                   // (which is the MRBS admin, but this setting allows MRBS
+                                                   // to be extended to have separate booking approvers)     
+
+// WHEN TO EMAIL
+// -------------
+$mail_settings['on_new']    = true;   // when an entry is created
+$mail_settings['on_change'] = true;  // when an entry is changed
+$mail_settings['on_delete'] = true;  // when an entry is deleted
+
+$mail_settings['allow_no_mail']        = false;
+$mail_settings['allow_admins_no_mail'] = true;  // Ignored if 'allow_no_mail' is true
+$mail_settings['no_mail_default'] = false; // Default value for the 'no mail' checkbox.  
+                                           // true for checked (ie don't send mail),
+                                           // false for unchecked (ie do send mail)
+
+
+// WHAT TO EMAIL
+// -------------
+$mail_settings['details']   = true; // Set to true if you want full booking details;
+                                     // otherwise you just get a link to the entry
+$mail_settings['html']      = true; // Set to true if you want HTML mail
+$mail_settings['icalendar'] = false; // Set to true to include iCalendar details
+                                     // which can be imported into a calendar.  (Note:
+                                     // iCalendar details will not be sent for areas
+                                     // that use periods as there isn't a mapping between
+                                     // periods and time of day, so the calendar would not
+                                     // be able to import the booking)
+
+
+// HOW TO EMAIL - ADDRESSES
+// ------------------------
+$mail_settings['domain'] = '@cc.ncu.edu.tw';
+
+$mail_settings['username_suffix'] = '';
+
+// HOW TO EMAIL - BACKEND
+// ----------------------
+$mail_settings['admin_backend'] = 'smtp';
+
+/*******************
+ * SMTP settings
+ */
+
+// These settings are only used with the "smtp" backend
+$smtp_settings['host'] = 'mail.ncuisq.tk';  // SMTP server
+$smtp_settings['port'] = 465;           // SMTP port number
+$smtp_settings['auth'] = true;        // Whether to use SMTP authentication
+$smtp_settings['secure'] = 'ssl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
+                                       // server doesn't advertise it. Conversely if you specify '' and the server advertises TLS, TLS
+                                       // will be used, unless the 'disable_opportunistic_tls' configuration parameter shown below is
+                                       // set to true.
+$smtp_settings['username'] = 'no-reply';       // Username (if using authentication)
+$smtp_settings['password'] = 'ncu@ggininder';       // Password (if using authentication)
+$smtp_settings['disable_opportunistic_tls'] = false; // Set this to true to disable
+                                                     // opportunistic TLS
+                                                     // https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#opportunistic-tls
+// If you're having problems with sending email to a TLS-enabled SMTP server *which you trust* you can change the following
+// settings, which reduce TLS security.
+// See https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting#php-56-certificate-verification-failure
+$smtp_settings['ssl_verify_peer'] = false;
+$smtp_settings['ssl_verify_peer_name'] = false;
+$smtp_settings['ssl_allow_self_signed'] = false;
+
+// EMAIL - MISCELLANEOUS
+// ---------------------
+$mail_settings['ics_filename'] = "booking";
+
+$mail_settings['debug'] = false;
+// Where to send the debug output.  Can be 'browser' or 'log' (for the error_log)
+$mail_settings['debug_output'] = 'log';
+
+$mail_settings['disabled'] = false;
+ 
 $auth["type"]="db";
 $auth["session"]="php";
 $auth['only_admin_can_see_other_users'] = true;
 $auth['show_bulk_delete'] = true;
 
-//for web--Jason. 1115 modified by JJ
+/******************
+ * Display settings
+ ******************/
+$area_list_format = "select";
+
+$monthly_view_entries_details = "both";
+
+$view_week_number = TRUE;
+
+$default_view = "week";
+
+
+/*******************
+ * for web--Jason. 1115 modified by JJ
+ */
 $web_host = "https://booking.ncu.edu.tw";
 
-
-// Booking types configuration. Use for tags.
-
+/*******************
+ * Booking types configuration. Use for tags. (modified by JJ)
+ */
 $booking_types[] = "B";
 $vocab_override["zh-tw"]["type.B"] = "未選擇種類";
 $vocab_override["en"]["type.B"] = "Unknown Type";
