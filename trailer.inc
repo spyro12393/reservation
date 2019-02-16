@@ -167,45 +167,45 @@ function generate_trailer()
     $output .= "</div>\n";
   
   
-    // MONTHS
-    $output .= "<div id=\"viewmonth\">\n";
-    $output .= "<div class=\"trailer_label\">\n";
-    $output .= "<a href=\"month.php?year=$year&amp;month=$month&amp;day=$day$params\">" . 
-                get_vocab("viewmonth") . "</a>\n";
-    $output .= "</div>\n";
+    // // MONTHS
+    // $output .= "<div id=\"viewmonth\">\n";
+    // $output .= "<div class=\"trailer_label\">\n";
+    // $output .= "<a href=\"month.php?year=$year&amp;month=$month&amp;day=$day$params\">" . 
+    //             get_vocab("viewmonth") . "</a>\n";
+    // $output .= "</div>\n";
   
-    $output .= "<div class=\"trailer_links\">\n";
-    for ($i = -2; $i <= 6; $i++)
-    {
-      $ctime = mktime(0, 0, 0, $month + $i, 1, $year);
-      $str = utf8_strftime($strftime_format['monyear'], $ctime);
+    // $output .= "<div class=\"trailer_links\">\n";
+    // for ($i = -2; $i <= 6; $i++)
+    // {
+    //   $ctime = mktime(0, 0, 0, $month + $i, 1, $year);
+    //   $str = utf8_strftime($strftime_format['monyear'], $ctime);
      
-      $cmonth = date("m", $ctime);
-      $cyear  = date("Y", $ctime);
-      $cday   = $day;
-      // decrement day until it's a valid one for the month, in case you're moving to a month with fewer
-      // days than the current one
-      while (!checkdate($cmonth, $cday, $cyear) && ($cday > 1))
-      {
-        $cday--;
-      }
-      if ($i != -2)
-      {
-        $output .= " | ";
-      }
-      if ($i == 0)
-      {
-        $output .= "<span class=\"current\">\n[ ";
-      }
-      $output .= "  <a href=\"month.php?year=$cyear&amp;month=$cmonth&amp;day=$cday$params\">$str</a>\n";
-      if ($i == 0)
-      {
-        $output .= "]</span>\n";
-      }
-    }
-    $output .= "</div>\n";  // end of links div
-    $output .= "</div>\n";  // end of viewmonth
-    $output .= "</div>\n";  // end of "classic" trailer
+    //   $cmonth = date("m", $ctime);
+    //   $cyear  = date("Y", $ctime);
+    //   $cday   = $day;
+    //   // decrement day until it's a valid one for the month, in case you're moving to a month with fewer
+    //   // days than the current one
+    //   while (!checkdate($cmonth, $cday, $cyear) && ($cday > 1))
+    //   {
+    //     $cday--;
+    //   }
+    //   if ($i != -2)
+    //   {
+    //     $output .= " | ";
+    //   }
+    //   if ($i == 0)
+    //   {
+    //     $output .= "<span class=\"current\">\n[ ";
+    //   }
+    //   $output .= "  <a href=\"month.php?year=$cyear&amp;month=$cmonth&amp;day=$cday$params\">$str</a>\n";
+    //   if ($i == 0)
+    //   {
+    //     $output .= "]</span>\n";
+    //   }
+    // }
+    // $output .= "</div>\n";  // end of links div
+    // $output .= "</div>\n";  // end of viewmonth
+    // $output .= "</div>\n";  // end of "classic" trailer
   }
   return $output;
 }
