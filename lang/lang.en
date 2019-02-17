@@ -219,6 +219,7 @@ $vocab["norights"]           = "You do not have the necessary rights to view thi
 $vocab["please_login"]       = "Please log in";
 $vocab["users.name"]         = "Name";
 $vocab["users.password"]     = "Password";
+$vocab["users.resetpwd"]      = "Reset Password";
 $vocab["users.level"]        = "Rights";
 $vocab["users.timestamp"]    = "Last updated";
 $vocab["unknown_user"]       = "Unknown user";

@@ -194,6 +194,7 @@ $vocab["norights"]           = "您無權利修改此筆記錄!!";
 $vocab["please_login"]       = "請先登入";
 $vocab["users.name"]          = "名稱";
 $vocab["users.password"]      = "密碼";
+$vocab["users.resetpwd"]      = "忘記密碼";
 $vocab["users.level"]         = "權限";
 $vocab["unknown_user"]       = "使用者不存在或密碼錯誤";
 $vocab["user_account_inactivated"]       = "帳號尚未開通";
