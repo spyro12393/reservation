@@ -417,6 +417,12 @@ if (isset($Action) && ( ($Action == "Edit") or ($Action == "Add") ))
                     $params['mandatory'] = TRUE;
                     generate_input($params);
                     break;
+                  case 'accountstatus': // added by Mansion
+                    // you cannot change a accountstatus (even your own) unless you have user editing rights
+                    $params['disabled'] = ($level < $min_user_editing_level);
+                    $params['mandatory'] = TRUE;
+                    generate_input($params);
+                    break;
                   case 'email':
                     $params['type'] = 'email';
                     $params['attributes'] = 'multiple';
