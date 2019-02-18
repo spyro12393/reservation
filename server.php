@@ -21,12 +21,12 @@
       die("連接失敗: ". mysqli_connect_error());
     }
     if(isset($_POST['register'])) {
-      $username=mysqli_real_escape_string($db,$_POST['username']);
+      $username=mysqli_real_escape_string($db,$_POST['username']);// realname
  	    $email=mysqli_real_escape_string($db,$_POST['email']);
  	    $phone=mysqli_real_escape_string($db,$_POST['phone']);
  	    $password_1=mysqli_real_escape_string($db,$_POST['password_1']);
       $password_2=mysqli_real_escape_string($db,$_POST['password_2']);
-      $studentID= substr(mysqli_real_escape_string($db,$_POST['email']),0,9);//
+      $name= substr(mysqli_real_escape_string($db,$_POST['email']),0,9);// name(studentID, using for login)
       //if error, push to errors array
       if(empty($username)) {
         array_push($errors, "請輸入姓名");
@@ -73,8 +73,8 @@
           if($row['accountstatus']==0){
             $sql="DELETE from mrbs_users where email='$email'";
             mysqli_query($db, $sql);
-            $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, studentID)
-                     VALUES('1','$username', '$email', '$phone', '$password_1', '0','$studentID' )";
+            $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, realname)
+                     VALUES('1','$name', '$email', '$phone', '$password_1', '0','$username' )";
             mysqli_query($db, $sql);
             //
             $sql="INSERT INTO mrbs_users_valid (email)
@@ -132,8 +132,8 @@
           }
         }
         else {
-          $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, studentID)
-                   VALUES('1','$username', '$email', '$phone', '$password_1', '0', '$studentID')";
+          $sql="INSERT INTO mrbs_users (level, name, email, phone, password_hash, accountstatus, realname)
+                   VALUES('1','$name', '$email', '$phone', '$password_1', '0', '$username')";
           mysqli_query($db, $sql);         
 
           $sql="INSERT INTO mrbs_users_valid (email)

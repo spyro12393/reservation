@@ -24,7 +24,7 @@ function rehash($password, $column_name, $column_value)
   
   switch ($column_name)
   {
-    case 'studentID': // edited by Mansion
+    case 'name': // edited by Mansion
       $condition = db()->syntax_casesensitive_equals($column_name, utf8_strtolower($column_value), $sql_params);
       break;
     case 'email':
@@ -137,7 +137,7 @@ function authValidateUser($user, $pass)
   if(count($valid_usernames) == 1)
   {
     global $tbl_users;
-    $sql="SELECT accountstatus FROM $tbl_users WHERE studentID = '$valid_usernames[0]'"; //WHERE name = -> WHERE studentID =
+    $sql="SELECT accountstatus FROM $tbl_users WHERE name = '$valid_usernames[0]'"; //WHERE name = -> WHERE studentID =
     $sql_params=array();
     $res = db()->query($sql, $sql_params);
     $row = $res->row_keyed(0);
@@ -188,7 +188,7 @@ function authValidateUsername($user, $pass)
   $sql = "SELECT password_hash
             FROM $tbl_users
            WHERE " .
-         db()->syntax_casesensitive_equals('studentID', utf8_strtolower($user), $sql_params) . // db()->syntax_casesensitive_equals('name', utf8_strtolower($user), $sql_params) . -> db()->syntax_casesensitive_equals('studentID', utf8_strtolower($user), $sql_params) .
+         db()->syntax_casesensitive_equals('name', utf8_strtolower($user), $sql_params) .  // db()->syntax_casesensitive_equals('name', utf8_strtolower($user), $sql_params) . -> db()->syntax_casesensitive_equals('studentID', utf8_strtolower($user), $sql_params) .
          "
            LIMIT 1";
 
@@ -202,7 +202,7 @@ function authValidateUsername($user, $pass)
     return false;
   }
 
-  return (checkPassword($pass, $row['password_hash'], 'studentID', $user)) ? $user : false; //return (checkPassword($pass, $row['password_hash'], 'name', $user)) ? $user : false; -> return (checkPassword($pass, $row['password_hash'], 'studentID', $user)) ? $user : false;
+  return (checkPassword($pass, $row['password_hash'], 'name', $user)) ? $user : false; //return (checkPassword($pass, $row['password_hash'], 'name', $user)) ? $user : false; -> return (checkPassword($pass, $row['password_hash'], 'studentID', $user)) ? $user : false;
 }
 
 
@@ -249,7 +249,7 @@ function authValidateEmail($email, $pass)
   }
 
   // Email addresses are not unique in the users table, so we need to find all of them.
-  $sql = "SELECT password_hash, studentID
+  $sql = "SELECT password_hash, name
             FROM $tbl_users
            WHERE $condition";
   // "SELECT password_hash, name -> "SELECT password_hash, studentID 
@@ -264,7 +264,7 @@ function authValidateEmail($email, $pass)
   {
     if (checkPassword($pass, $row['password_hash'], 'email', $email))
     {
-      $valid_usernames[] = $row['studentID']; // $row['name']; -> $row['studentID'];
+      $valid_usernames[] = $row['name']; ; // $row['name']; -> $row['studentID'];
     }
   }
   
@@ -298,7 +298,7 @@ function authGetUserLevel($user)
     return 0;
   }
   
-  $result = db()->query1("SELECT level FROM $tbl_users WHERE studentID=? LIMIT 1", // name -> studentID
+  $result = db()->query1("SELECT level FROM $tbl_users WHERE name=? LIMIT 1", // name -> studentID
                        array(utf8_strtolower($user)));
 
   return ($result == -1) ? 0 : $result;
@@ -318,7 +318,7 @@ function authGetUserEmail($user)
   
   $sql = "SELECT email 
             FROM $tbl_users 
-           WHERE studentID=?
+           WHERE name=?
            LIMIT 1";
   // WHERE name=? -> WHERE studentID=?
 
