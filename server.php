@@ -105,7 +105,7 @@
               )
             );
 
-            $mail->setFrom('no-reply@mail.ncuisq.tk', 'no-reply');
+            $mail->setFrom($mail_settings['from'], 'no-reply');
             $mail->addAddress($email, 'Receiver');     // Add a recipient
             $mail->isHTML(true);                       // Set email format to HTML
 
@@ -165,7 +165,7 @@
               )
             );
 
-            $mail->setFrom('no-reply@mail.ncuisq.tk', 'no-reply');
+            $mail->setFrom($mail_settings['from'], 'no-reply');
             $mail->addAddress($email, 'Receiver');     // Add a recipient
             $mail->isHTML(true);                       // Set email format to HTML
 
@@ -247,7 +247,7 @@
             )
           );
 
-          $mail->setFrom('no-reply@mail.ncuisq.tk', 'no-reply');
+          $mail->setFrom($mail_settings['from'], 'no-reply');
           $mail->addAddress($email, 'Receiver');     // Add a recipient
           $mail->isHTML(true);                       // Set email format to HTML
 
