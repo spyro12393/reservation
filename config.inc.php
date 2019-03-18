@@ -90,7 +90,7 @@ $url_base = "";
 // --------------
 
 // Set the email address of the From field. Default is 'admin_email@your.org'
-$domain = 'booking.ncu.edu.tw'
+$domain = 'booking.ncu.edu.tw';
 $mail_settings['from'] = 'no-reply@'.$domain;
 
 $mail_settings['organizer'] = 'admin@'.$domain;
