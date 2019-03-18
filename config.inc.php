@@ -90,9 +90,10 @@ $url_base = "";
 // --------------
 
 // Set the email address of the From field. Default is 'admin_email@your.org'
-$mail_settings['from'] = 'no-reply@mail.ncuisq.tk';
+$domain = 'booking.ncu.edu.tw'
+$mail_settings['from'] = 'no-reply@'.$domain;
 
-$mail_settings['organizer'] = 'admin@mail.ncuisq.tk';
+$mail_settings['organizer'] = 'admin@'.$domain;
 
 $mail_settings['recipients'] = 'mansion.lai.411@gmail.com,spyro12393@g.ncu.edu.tw';
 
@@ -139,7 +140,7 @@ $mail_settings['icalendar'] = false; // Set to true to include iCalendar details
 
 // HOW TO EMAIL - ADDRESSES
 // ------------------------
-$mail_settings['domain'] = '@cc.ncu.edu.tw';
+$mail_settings['domain'] = '@'.$domain;
 
 $mail_settings['username_suffix'] = '';
 
@@ -152,7 +153,7 @@ $mail_settings['admin_backend'] = 'smtp';
  */
 
 // These settings are only used with the "smtp" backend
-$smtp_settings['host'] = 'nas.ncuisq.tk';  // SMTP server
+$smtp_settings['host'] = $domain;  // SMTP server
 $smtp_settings['port'] = 465;           // SMTP port number
 $smtp_settings['auth'] = true;        // Whether to use SMTP authentication
 $smtp_settings['secure'] = 'ssl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
